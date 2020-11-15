@@ -1,0 +1,1 @@
+web: gunicorn originalstores.wsgi --log-file -
