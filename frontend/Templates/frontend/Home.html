@@ -1,0 +1,149 @@
+{% extends 'base.html' %}
+{% load static %}
+<!DOCTYPE html>
+<html>
+
+<head>
+
+</head>
+
+<body>
+
+    {% block content %}
+    <!-- Add all page content inside this div if you want the side nav to push page content to the right (not used if you only want the sidenav to sit on top of the page -->
+
+    <!-- <div class="header">    
+                
+            <div class="hamburger">                                   
+                <a onclick="openNav()">
+                <div class="hb"></div>
+                <div class="hb"></div>
+                <div class="hb"></div>
+                </a>                                                                                                                                                       
+            </div>
+           <img />
+            <span style="align-self:flex-start">Ahead of Time..</span>     
+       
+             <div class="searchDiv">
+                <input class="searchbar" type="text" placeholder="What are you searching for ?"></input>
+             
+                  <img src='https://i.ibb.co/gPnyS7Z/search-glass.jpg' class="searchImg"></img>
+                
+                </div>  -->
+
+    <!--  <div class="navbar">
+                    <a href="login">Login</a>
+                    <a href="SignUp">SignUp</a>
+                    <a href="#">Shop Now</a>
+                    <a href="#">Contact Us </a>                                              
+               </div> 
+           
+        </div> -->
+
+
+    <div class="heading">
+         <label class="headLabel">Categories</label></div>
+    <div class="shopProducts" title="Shop">
+        <div>
+            <div href="SignUp" style="background-image: url('https://i.ibb.co/wMqvdb0/readymade-Garments.jpg');"
+                class="productDesc">
+                <!-- <a style="background-image: url('https://i.ibb.co/wMqvdb0/readymade-Garments.jpg');;"></a> -->
+                <!-- <img src="https://i.ibb.co/wMqvdb0/readymade-Garments.jpg"> <br/> -->
+
+            </div>
+            <a href="Products/ReadymadeGarment">Readymade Garments</a>
+        </div>
+
+
+        <div>
+            <div style="background-image: url('https://i.ibb.co/ygRbNws/fabrics.jpg');background-repeat: no-repeat;"
+                class="productDesc">
+                <!-- <a style="background-image: url('https://i.ibb.co/ygRbNws/fabrics.jpg');background-size: 120%;"></a> -->
+                <!-- <img src="https://i.ibb.co/ygRbNws/fabrics.jpg"> <br/> -->
+                <!--  -->
+            </div>
+            <a href="Products/Fabrics">Fabrics</a>
+        </div>
+
+        <div>
+            <div style="background-image: url('https://i.ibb.co/KsHMtxF/Sadar-Bazaar.jpg');background-repeat: no-repeat;"
+                class="productDesc">
+                <!-- <img src="https://i.ibb.co/KsHMtxF/Sadar-Bazaar.jpg"> <br/> -->
+
+
+            </div>
+            <a href="Products/Handicrafts">Handicrafts</a>
+        </div>
+
+        <div>
+            <div style="background-image: url('https://i.ibb.co/3p1h3Kr/bookstobangle.jpg');background-repeat: no-repeat;"
+                class="productDesc">
+                <!-- <img src="https://i.ibb.co/3p1h3Kr/bookstobangle.jpg"> <br/> -->
+                <!--  -->
+            </div>
+            <a href="Products/HomeDecor">Home Decor & Interiors</a>
+        </div>
+        <!--  <div style="background-image: url('https://i.ibb.co/wMqvdb0/readymade-Garments.jpg');;background-repeat: no-repeat;">
+                <img src="https://i.ibb.co/b31g6M7/designer-indian-wear.jpg"> <br/>
+                <label>Tailoring Services</label>
+            </div>    -->
+    </div>
+
+    <div style="display: flex;justify-content: space-evenly;">
+        <div>
+            <p>Hey dear! We heartly welcome you in the World of Original Stores. .</p>
+
+        </div>
+    </div>
+
+    <div class="heading"> <label class="headLabel">Stores Near You</label></div>
+    <div id="storeListDiv" style="display: flex;flex-wrap: wrap;padding: 2%;" class="">
+
+    </div>
+
+    <!-- <div style="display: flex;flex-direction: row;justify-content: space-around;">
+
+            <div>
+
+            </div>
+
+            <div>
+
+            </div>
+           
+            <div style="">
+            <span class="dot" onclick="currentSlide(1)"></span>
+            <span class="dot" onclick="currentSlide(2)"></span>
+            <span class="dot" onclick="currentSlide(3)"></span>            
+        </div>
+          </div> -->
+
+
+    <!-- <button  class="submitButton" style="float: right;" onclick="">Submit</button> -->
+    <!-- <div style="display: flex;justify-content:flex-start;">
+                        <div>
+                            <p>We really respect your privacy and assure you that your data is in safe hands. </p>
+                        </div>
+                        <div>
+                            <p>We really respect your privacy and assure you that your data is in safe hands. </p>
+                        </div>
+                    <div style="">
+                        <button class="submitButton">Submit</button>
+                    </div>
+                </div> -->
+
+    <div>
+
+
+    </div>
+    </div>
+
+
+    {% endblock %}
+</body>
+
+<script>
+    
+</script>
+
+</html>

@@ -1,0 +1,135 @@
+{% extends 'base.html' %}
+{% load static %}
+
+<!DOCTYPE html>
+<html>
+    <head>        
+         
+    </head>
+    <body>
+{% block content %}
+<input type="hidden" id="productType" value={{request.GET.name}}/>
+<div style="display: flex;">
+
+    <div style="color: black;display: flex;flex-direction: column;background-color: aliceblue;">  
+        <label style="white-space: nowrap;">Filter by </label> 
+        <div>
+            <h5>Categories</h5>
+                <ul style="list-style-type: none;margin: 0;padding: 0;width: 200px;background-color: #f1f1f1;">
+                    <li><input type="checkbox"></li>
+                    <li><input type="checkbox"></li>
+                    <li><input type="checkbox"></li>
+                    <li ><input type="checkbox"></li>
+                </ul>
+        </div>         
+        <div>
+            <h5>Fabric</h5>
+                <ul style="list-style-type: none;margin: 0;padding: 0;width: 200px;background-color: #f1f1f1;">
+                    <li><input type="checkbox"></li>
+                    <li><input type="checkbox"></li>
+                    <li><input type="checkbox"></li>
+                    <li ><input type="checkbox"></li>
+                </ul>
+        </div>         
+    </div>
+
+    <div style="display: flex;">
+       
+    <div class="card-container">
+          
+        {% for article in articles %}
+        <div class="card">
+            <!-- <header class="article-header"> -->
+                <div>
+                    <div class="category-title">
+                        {{article.name}}
+                        <span class="date">Jan 19, 2020</span>
+                    </div>
+                    <div style="background-image: url({{article.imgPath}});" class="productDesc">
+
+                    </div>
+                </div>
+               <div><label>Starts from $</label>{{article.price}}</div>
+                <!-- <h2 class="article-title">
+                    Custom Theme with Angular Material
+                </h2> -->
+            <!-- </header> -->
+            <!-- <div class="author">
+                <div class="profile"></div>
+                <div class="info">
+                    <div class="caption">Author</div>
+                    <div class="name">David Hose</div>
+                </div>
+            </div> -->
+            <!-- <div class="tags">
+                <div>JavaScript</div>
+                <div>HTML</div>
+            </div> -->
+        </div>
+        {% endfor %}
+        <!-- repeat the card here. -->
+        <!-- <div class="card">
+
+            <header class="article-header">
+                <div>
+                    <div class="category-title">
+                        Article
+                        <span class="date">Jan 19, 2020</span>
+                    </div>
+                </div>
+                <h2 class="article-title">
+                    Custom Theme with Angular Material
+                </h2>
+            </header>
+            <div class="author">
+                <div class="profile"></div>
+                <div class="info">
+                    <div class="caption">Author</div>
+                    <div class="name">David Hose</div>
+                </div>
+            </div>
+            <div class="tags">
+                <div>JavaScript</div>
+                <div>HTML</div>
+            </div>
+
+        </div>
+
+        <div class="card">
+
+        </div>
+
+        <div class="card">
+
+        </div> -->
+</div>
+<!-- <div class="card-container">
+
+</div> -->
+   </div>
+    <!-- <table>
+        <tr>
+            <th>Name</th>
+            <th>Category</th>
+            <th>Price</th>
+            <th>Shop Name</th>
+       </tr>
+        {% for article in articles %}
+
+        <tr>
+            <td>{{article.name}}</td>
+            <td>{{article.category}}</td>
+            <td>{{article.price}}</td>
+            <td>{{article.shopName}}</td>
+        </tr>
+       
+
+       {% endfor %}
+    </table> -->
+    <!-- नमस्ते -->
+
+</div>
+
+{% endblock %}
+
+</body>

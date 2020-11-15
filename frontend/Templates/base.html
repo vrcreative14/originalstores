@@ -1,0 +1,202 @@
+{%load static %}
+{%static "images" as baseUrl%}
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+  <meta charset="UTF-8">
+  <title>
+    Orig
+  </title>
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/semantic-ui@2.4.2/dist/semantic.min.css">
+  <link rel="stylesheet" type="text/css" href="{%static 'css/App.css'%}">
+  <link href='https://fonts.googleapis.com/css?family=Barlow' rel='stylesheet'>
+  <link href='https://fonts.googleapis.com/css?family=Belgrano' rel='stylesheet'>
+
+  <div class="page-header">
+
+    <div class="hamburger">
+      <a onclick="openNav()">
+        <div class="hb"></div>
+        <div class="hb"></div>
+        <div class="hb"></div>
+      </a>
+    </div>
+    <div>
+      <img />
+      <label style="align-self:flex-start">Shopping Highways...</label> <br />
+      <label>Connecting us with the local shops..</label>
+    </div>
+    <!-- <div class="searchDiv">
+        <input class="searchbar" type="text" placeholder="What are you searching for ?"></input>
+     
+          <img src='https://i.ibb.co/gPnyS7Z/search-glass.jpg' class="searchImg"></img>
+        
+        </div>  -->
+    <!-- <div id="demo"></div> -->
+    <div class="ui icon input">
+      <input type="text" placeholder="Search...">
+      <i class="circular search link icon"></i>
+    </div>
+    <div class="navbar">
+     
+      <!-- <input id="demo" placeholder="" /> <i></i> -->
+
+      <a href="./login">Login</a>
+      <a href="../SignUp">SignUp</a>
+      <a href="#">Shop Now</a>
+      <a href="#">Contact Us </a>
+      <a style="background-image: url('{{ baseUrl }}/cart.png')" class="imgClick">Cart</a>
+
+      <!-- <img  src="{%static 'images/cart.png'%}" style="width: 7%;">                               -->
+    </div>
+
+  </div>
+</head>
+
+<body>
+
+  <div id="mySidenav" class="sidenav">
+    <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
+    <a href="#">About</a>
+    <a href="#">Services</a>
+    <a href="#">Clients</a>
+    <a href="#">Contact</a>
+  </div>
+  
+  {% block content %}
+
+   
+  {% endblock %}
+
+  
+  
+  <!--footer code starts  -->
+  <footer style="position: relative;bottom: 0;width: 100%;height: 35%;background-color: black;">
+   
+      <div style="color: #fff;display: flex;">
+        <div>
+          <ul style="list-style: none;">
+            <li> <a>
+              Shop by preference
+            </a>
+          </li>
+          <li>
+            <a>
+              Shop by Location
+            </a>
+          </li>
+          <li>
+            <a>
+              Buy a Gift
+            </a>
+          </li>
+          <li>
+            <a>
+              Change Location
+            </a>
+          </li>
+          </ul>                      
+        </div>
+        <div>
+          <ul>
+            <li>
+
+            </li>
+          </ul>
+        </div>
+    </div>
+
+  </footer>
+  </div>
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+  <script src="semantic/dist/semantic.min.js"></script>
+  <script>
+    
+    console.log(first_name)
+    // let signupRequest = {
+    //   method: 'POST',
+    //   headers: {
+    //     'Accept': "application/json",
+    //     'Content-Type': 'application/json'
+    //   },
+    //   body: JSON.stringify({
+    //     "user": {
+    //       "email": email,
+    //       "password": password,
+    //       "phone": mobile_no
+    //     },
+    //     "first_name": first_name,
+    //     "last_name": last_name
+    //   }),
+    // };
+
+    function getCookie(name) {
+    let cookieValue = null;
+    if (document.cookie && document.cookie !== '') {
+        const cookies = document.cookie.split(';');
+        for (let i = 0; i < cookies.length; i++) {
+            const cookie = cookies[i].trim();
+            // Does this cookie string begin with the name we want?
+            if (cookie.substring(0, name.length + 1) === (name + '=')) {
+                cookieValue = decodeURIComponent(cookie.substring(name.length + 1));
+                break;
+            }
+        }
+    }
+    return cookieValue;
+}
+
+    const csrftoken=getCookie('csrftoken');
+
+    function Signup() {
+      var first_name = document.getElementById('first_name').value
+    var last_name = document.getElementById('last_name').value
+    var password = document.getElementById('password').value
+    var cpassword = document.getElementById('cpassword').value
+    var email = document.getElementById('email').value
+    var mobile_no = document.getElementById('mobile_no').value
+      console.log(email, mobile_no, first_name)
+      fetch('http://127.0.0.1:8000/api/seller/register/',{ 
+      method : 'POST',
+      headers: {
+        'Accept': "application/json, text/plain, */*",
+        'Content-Type': 'application/json',
+        'Authorization':'Token ed73db9bf18f3c3067be926d5ab64cec9bcb9c5e',
+        'X-CSRFToken': csrftoken,
+      },
+      body: JSON.stringify({
+        "user": {
+          "email": email,
+          "password": password,
+          "phone": mobile_no
+        },
+        "first_name": first_name,
+        "last_name": last_name
+      })
+    }
+      )
+        .then(function(response) {
+          if(!response.ok){
+            console.log(response)
+            console.log(email, mobile_no, first_name)            
+            throw Error(response.statusText)
+          }
+          response.json()
+          console.log(email)
+        })
+        .then(data => console.log(data))
+        .catch(error => console.log(error))
+    }
+
+  </script>
+<script src="{% static 'js/App.js' %}"></script>
+<script src="{% static 'js/Signup.js' %}"></script>
+
+</body>
+
+<script src="https://cdn.jsdelivr.net/npm/semantic-ui@2.4.2/dist/semantic.min.js"></script>
+
+</html>

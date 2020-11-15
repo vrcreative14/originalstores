@@ -1,0 +1,46 @@
+<!DOCTYPE html>>
+<html>
+    <head>
+        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/semantic-ui@2.4.2/dist/semantic.min.css">
+    </head>
+
+    <body>
+        {% block content%}
+        <div class="">
+        <div class="ui top attached steps fluid tabular menu">
+            <div class="step">
+              <i class="user plus icon"></i>
+              <div class="content">
+                <div class="title">Signup</div>
+                <div class="description">Signup as a Seller to explore Great Opportunities</div>
+              </div>
+            </div>
+            <div class="active step">
+              <i class="payment icon"></i>
+              <div class="content">
+                <div class="title">Billing</div>
+                <div class="description">Enter billing information</div>
+              </div>
+            </div>
+            <div class="disabled step">
+              <i class="info icon"></i>
+              <div class="content">
+                <div class="title">Confirm Order</div>
+              </div>
+            </div>
+          </div>
+
+          <div class="ui bottom attached active tab segment">
+            
+            <form class="ui large form">
+              
+                  
+                  </form>
+
+          </div>
+
+        </div>
+        {%endblock%}
+        <script src="https://cdn.jsdelivr.net/npm/semantic-ui@2.4.2/dist/semantic.min.js"></script>
+    </body>
+</html>

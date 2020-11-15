@@ -1,0 +1,406 @@
+{% extends 'base.html' %}
+{% load static %}
+<!DOCTYPE html>
+<html>
+
+<head>
+    
+    <link href='https://fonts.googleapis.com/css?family=Finger Paint' rel='stylesheet'>
+    <style>
+        * {
+            box-sizing: border-box;
+          }
+
+
+        /* body {
+  font-family: Arial, Helvetica, sans-serif;
+} */
+
+        /* .formcontainer{
+                    display: flex;
+                    flex-direction: row;
+                } */
+
+        /* .formcontainer>div{
+                    align-items: baseline;
+                    padding: 16px 50px 20px 45px;
+                }
+
+                .formcontainer > input{
+                    margin: 0 46px 4px 39px;
+                    
+                }
+                .headinglabel{
+                      margin: 5px 40px 39px 2px;
+                      font-size: 20px;
+                      font-weight: 600;
+                }
+
+                input,select{
+                    margin-left: 200px;
+                    height: 25px;
+                }
+
+                input:hover{
+                    wnameth: 300px;                    
+                }
+                 */
+    </style>
+    
+</head>
+
+<body style="font-family: 'Finger Paint';">
+    
+    {% block content %}
+    {{form}}
+    <!--  <div class="container">
+            <div>
+                <p>Hey dear! We heartly welcome you in the World of Original Stores. A place where we as a team can revolutionize the way shopping is done. Our main motto is to help out our customers and shopkeepers to evolove out of the circumstances created as our fight continues with the worldwnamee Covname-19 pandemic.</p>
+                <p>We really respect your privacy and assure you that your data is in safe hands. We never share your data to any third-party in any circumstances.</p>
+            </div>
+            <form>
+                <div class="formcontainer"> 
+                    <div style="flex-direction: column;justify-content: space-around;">
+                   
+                    <div>
+                        <i></i>
+                        <label class="headinglabel">Store/Shop Name</label>  <label>(Please mention the name for which you are famous for amongst people)</label> <br/>
+                        <input name="textShopName" type="text"/>
+                    </div>
+                    <div>
+                        <label class="headinglabel">Address </label> <br/>
+                        <input name="textShopName" type="text"/>
+                    </div>
+                    <div>
+                        <label class="headinglabel">State</label> <br/>
+                       <select>
+                           <option></option>
+                       </select>
+                    </div>
+                    <div>
+                        <label class="headinglabel">City</label> <br/>
+                        <input name="textShopName" type="text"/>
+                    </div>
+                    <div>
+                        <label class="headinglabel">Store/Shop Name </label><label> (Please mention the name for which you are famous for amongst people)</label> <br/>
+                        <input name="textShopName" type="text"/>
+                    </div>
+                </div>
+
+                <div>
+
+                    <div>
+                        <label class="headinglabel">Store/Shop Name</label>   <br/>
+                        <input name="textShopName" type="text"/>
+                    </div>
+                    <div>
+                        <label class="headinglabel">Address </label>  <br/>
+                        <input name="textShopName" type="text"/>
+                    </div>
+                    <div>
+                        <label class="headinglabel">State</label>  <br/>
+                       <select>
+                           <option></option>
+                       </select>
+                    </div>
+                    <div>
+                        <label class="headinglabel">City</label>  <br/>
+                        <input name="textShopName" type="text"/>
+                    </div>
+                    <div>
+                        <label class="headinglabel">Store/Shop Name </label><label> </label> <br/>
+                        <input name="textShopName" type="text"/>
+                    </div>
+
+                </div>
+                    
+                </div>
+                    
+
+                    </div>
+            </form>
+
+        </div> -->
+<div class="container">
+ <div style="display: flex;justify-content: center;align-items: center;background-color: black;height: 55px;"
+        class="formdiv">
+        <span style="font-weight: 500;color: #fff;"> Let us help you in your Business</span>
+    </div>
+
+    <div style="display: flex;justify-content: center;" class="formdiv">        
+        <span style="font-weight: 500;color:rgb(143, 19, 196);font-size: 22px;margin:15px;"> Seller SignUp Form </span>
+    </div>
+
+    <div class="centeredDiv">
+        <img class="ui medium image" src="https://i.ibb.co/gRt6bFJ/signup.jpg">
+    </div>
+    <div id="sellermodal" class="modal">
+
+        <!-- Modal content -->
+        <div class="modal-content">       
+            <span class="close">&times;</span>
+              <div>
+                  <h3 style=" color:rgb(104, 156, 58)">Data Submitted Successfully</h3>
+                  <p id="modalmsg">
+                     An OTP has been sent to your registered Email and Mobile number. <br/>
+                     In case you have not received OTP click here.
+                     <button class="activebtn">Resend OTP</button>
+                  </p>
+                 
+                     
+                
+                  <div style="display:flex; flex-direction: column;">
+                        <div id="emailVerification" class="verify-div">
+                            <label>Fill in the 6 digit OTP sent to your registered Email</label> <br/>
+                            <input type="text" class="verifyOTP email" maxlength="1" oninput="this.value=this.value.replace(/[^0-9]/g,'')";/>
+                            <input type="text" class="verifyOTP email" maxlength="1" oninput="this.value=this.value.replace(/[^0-9]/g,'')";/>
+                            <input type="text" class="verifyOTP email" maxlength="1" oninput="this.value=this.value.replace(/[^0-9]/g,'')";/>
+                            <input type="text" class="verifyOTP email" maxlength="1" oninput="this.value=this.value.replace(/[^0-9]/g,'')";/>
+                            <input type="text" class="verifyOTP email" maxlength="1" oninput="this.value=this.value.replace(/[^0-9]/g,'')";/>
+                            <input type="text" class="verifyOTP email" maxlength="1" oninput="this.value=this.value.replace(/[^0-9]/g,'')";/>
+                            <input type="text" class="verifyOTP email" maxlength="1" oninput="this.value=this.value.replace(/[^0-9]/g,'')";/>
+
+
+                            <!-- <button class="ui primary loading button"></button> -->
+                           
+                           <!-- <span id="loader-span"> -->
+                            <!-- <div class="ui active inline loader" style="margin-left: 25px;"> -->
+                              
+                            </div>
+                            <label id="loader-label" style="font-size:16px;">Verifying</label>
+                        </span> -->
+                            <!-- <button class="verifyButton">Verify Email</button> -->
+                        </div>
+                        <div id="phoneVerification" class="verify-div">
+                            <label>Fill in the 6 digit OTP sent to your registered mobile number.</label> <br/>
+                            <input type="text" class="verifyOTP mobile" maxlength="1" oninput="this.value=this.value.replace(/[^0-9]/g,'')";/>
+                            <input type="text" class="verifyOTP mobile" maxlength="1" oninput="this.value=this.value.replace(/[^0-9]/g,'')";/>
+                            <input type="text" class="verifyOTP mobile" maxlength="1" oninput="this.value=this.value.replace(/[^0-9]/g,'')";/>
+                            <input type="text" class="verifyOTP mobile" maxlength="1" oninput="this.value=this.value.replace(/[^0-9]/g,'')";/>
+                            <input type="text" class="verifyOTP mobile" maxlength="1" oninput="this.value=this.value.replace(/[^0-9]/g,'')";/>
+                            <input type="text" class="verifyOTP mobile" maxlength="1" oninput="this.value=this.value.replace(/[^0-9]/g,'')";/>
+                            <input type="text" class="verifyOTP mobile" maxlength="1" oninput="this.value=this.value.replace(/[^0-9]/g,'')";/>
+                           
+
+                            <!-- <button class="verifyButton">
+                                Verify
+                                <div class="ui active inline loader" style="margin-left: 25px;">
+                                  
+                                </div>
+                            </button>
+                                <label id="loader-label" style="font-size:16px;">Verifying</label>
+                             -->
+                             <button class="ui inverted primary button">Primary</button>
+                        </div>
+                  </div>   
+                  <a>   </a>       
+              </div>
+         
+        </div>       
+        <div class="ui container">
+           
+        
+        <form class="ui form grid">
+            <!-- <h4 class="ui dividing header">Shipping Information</h4> -->
+            <div class="fields">
+              <!-- <label>Name</label> -->
+              <div class="seven wide field">     
+                    <div class="required inline field">
+                            <label >Full Name</label>
+                           
+                            <span id="enterNameLabel" class="ui left pointing red basic label" style="display: none;">Please Enter First Name</span>             
+                    </div>                                             
+                  <input type="text" id="first_name" name="first_name" placeholder="Your Full Name" maxlength="70">
+              </div>
+             
+                
+             <div class="four wide field">
+             
+                <span> <i> Please provide accurate full name. </i> </span>
+                   <!-- <div class="inline field">
+                        <label>Last Name</label>                        
+                  </div>
+
+                  <input id="last_name" type="text" name="last_name" placeholder="Last Name"> -->
+                </div>  
+              </div>
+           
+            <div class="fields">
+              <!-- <label class="ui dividing">Contact Information (For Log in purpose either Email OR Mobile no can be used)</label> -->
+              <div class="nine wide field">
+              <div class="required inline field">
+                <label>Mobile number </label>
+                <span id="invalidPhoneLabel" class="ui left pointing red basic label" style="display: none;">Please Enter Valid Mobile No.</span>             
+                </div>
+                <div class="inline field">
+                    <input class="ui mini" style="width: 55px;margin-right: 0px;" placeholder="+91" readonly></input>
+                  <input type="text" id="mobile_no" name="mobile_no" placeholder="Enter Your Mobile number" onchange="validateMobileno()" onkeypress="return (event.charCode !=8 && event.charCode ==0 || (event.charCode >= 48 && event.charCode <= 57))" maxlength="10" style="width: 68%;">
+               </div>                                               
+            </div>                   
+        </div>
+
+        <div class="fields">
+            <div class="seven wide field">   
+                <div class="inline field">
+                 <label >Email (Optional)</label>  
+                 <span id="invalidEmailLabel" class="ui left pointing red basic label" style="display: none;">Please Enter Valid Email Id</span>             
+               </div>
+                 <div class="">
+                   <input type="email" name="email" id="emailInput" placeholder="Enter Your Email Id"  onchange="validateEmail()" maxlength="55">
+                 </div>               
+               </div>  
+        </div>
+
+        <div class="fields">
+            <!-- <label class="ui dividing">Contact Information (For Log in purpose either Email OR Mobile no can be used)</label> -->
+           
+            <div class=" seven wide field">   
+             <div class="required inline field">
+               <label>Password</label>  
+               <span id="passwordLabel" class="ui left pointing red basic label" style="display: none;">Please Enter Password</span>             
+            </div>
+              <div class="">
+                <input type="password" name="password" id="password" id="emailInput" placeholder="Enter Password"  onchange="checkPassword()" maxlength="50">
+              </div>               
+            </div>             
+        
+          <!-- <div class="four wide field">
+                    <div class="inline field">
+                        <label>Confirm Password</label>
+                        <span id="cPasswordLabel" class="ui left pointing red basic label" style="display: none;">Password not matching</span>             
+                    </div>
+              <div class="">
+                <input type="password" name="confirm_pass" id="cpassword" placeholder="Confirm Password" onchange="checkConfirmPassword()" disabled>
+             </div>
+          </div> -->
+        
+      </div>
+    
+    
+     
+      <div class="field">
+          <ul>
+              <li>
+                  <label>
+                      We respect your privacy, and we never share your data to any third party
+                  </label>
+              </li>
+              <li>
+                  <label>An OTP will be sent on your Email and mobile number for verification.</label>
+              </li>
+              <li>
+                  <label>
+                      Either Email or Mobile number may be used for account Log in.
+                  </label>
+              </li>
+         </ul>
+      </div>
+
+            <!-- <div class="two fields">
+                <div class="field">
+                  <label>State</label>
+                  <select class="ui fluid dropdown">
+                    <option value="">State</option>
+                <option value="AL">Alabama</option>
+                </select>
+            </div>
+            <div class="field">
+              <label>Country</label>
+              <div class="ui fluid search selection dropdown">
+                <input type="hidden" name="country">
+                <i class="dropdown icon"></i>
+                <div class="default text">Select Country</div>
+                <div class="menu">
+                    <div class="item" data-value="af"><i class="af flag"></i>Afghanistan</div>
+                    <div class="item" data-value="ax"><i class="ax flag"></i>Aland Islands</div>
+                </div>
+              </div>
+            </div>
+            
+      </div> -->
+        </form>
+       
+        <div class="centeredDiv">
+            <button id="signupSubmit" class="fluid ui submitButton"   onclick="Signup()"><b>SUBMIT</b></button>
+           
+            <!-- <button id="signupSubmit" class="ui green button submitButton" onclick="Signup()">Green</button> -->
+        </div>
+        <br/>
+        <div class="centeredDiv">
+            <button id="signupSubmit" class="ui button blue submitButton"  onclick="Signup()"><b>Register using Email ID</b></button>
+           
+            <!-- <button id="signupSubmit" class="ui green button submitButton" onclick="Signup()">Green</button> -->
+        </div>
+
+</div>
+
+       
+    <div style="display: flex;padding: 50px;" class="formDiv">
+        <h5></h5>
+
+        <div>
+
+
+        </div>
+
+
+        <!-- <div style="display: flex;flex-direction: column;" class="labelcontainer">
+
+            <label>Shop/Store Name</label>
+            <label>E-mail</label>
+            <label>Select your state</label>
+
+            <label>City</label>
+
+            <label>Pincode</label>
+
+            <label>Category</label>
+            <label>Sub Category</label>
+
+
+        </div>
+        <div style="align-self: flex-end;position: relative;top: 40px;">
+            <button class="submitButton" onclick="">Submit</button>
+        </div>
+
+        <div style="display: flex;flex-direction: column;">
+
+            <input class="inputDetails"  placeholder="Enter your full name" style="margin-top: 6px;" />
+            <input class="inputDetails" placeholder="Enter your E-mail" style="margin-top: 6px;" />
+            <select class="selectDetails">
+                <option>---Select---</option>
+                {% for state in states %}
+                <option>{{state}}</option>
+                {% endfor %}
+            </select>
+            <input class="inputDetails" id  placeholder="Enter your city" />
+            <input class="inputDetails" placeholder="Enter your pincode" />
+
+
+            <select class="selectDetails">
+                <option>---Select---</option>
+                {% for store_category in store_categories%}
+                <option>{{store_category}}</option>
+                {%endfor%}
+            </select>
+
+            <select class="selectDetails">
+                <option>---Select---</option>
+                {% for store_subcategory in store_subcategories%}
+                <option>{{store_subcategory}}</option>
+                {%endfor%}
+            </select>
+
+        </div> -->
+
+      
+
+    </div>
+</div>
+    {% endblock %}
+
+    
+</body>
+
+
+</html>
