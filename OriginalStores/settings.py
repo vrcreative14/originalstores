@@ -53,6 +53,7 @@ AUTH_USER_MODEL = 'accounts.User'               #changes the built-in user model
 
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
+    'whitenoise.middleware.WhiteNoiseMiddleware',
     'django.contrib.sessions.middleware.SessionMiddleware',
     'corsheaders.middleware.CorsMiddleware',
     'django.middleware.common.CommonMiddleware',
@@ -84,8 +85,7 @@ WSGI_APPLICATION = 'OriginalStores.wsgi.application'
 
 CORS_ORIGIN_WHITELIST = [
     "https://localhost:3000",
-    "http://localhost:8100",
-    
+    "http://localhost:8100",    
 ]
 
 # Database
