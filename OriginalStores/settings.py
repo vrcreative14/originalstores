@@ -183,4 +183,4 @@ EMAIL_HOST_USER = 'vcreative14@gmailcom'
 EMAIL_HOST_PASSWORD = 'Sona@1960'
 EMAIL_USE_TLS = True
 
-ALLOWED_HOSTS = ['https://originalstores.herokuapp.com/', '127.0.0.1']
+ALLOWED_HOSTS = ['https://originalstores.herokuapp.com/', '127.0.0.1', "https://django-app-c02x.onrender.com/"]
