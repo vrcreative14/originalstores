@@ -38,3 +38,4 @@ whitenoise==5.2.0
 win32-setctime==1.0.3
 wrapt==1.12.1
 gunicorn==20.0.4
+qrcode==6.1
