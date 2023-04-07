@@ -1,0 +1,143 @@
+{%load static %}
+{%static "images" as baseUrl%}
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+  <meta charset="UTF-8">
+  
+  <title>{% block  title %} {% endblock %}</title>
+
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/semantic-ui@2.4.2/dist/semantic.min.css">
+  <link rel="stylesheet" type="text/css" href="{%static 'css/App.css'%}">
+  
+  <link href='https://fonts.googleapis.com/css?family=Barlow' rel='stylesheet'>
+  <link href='https://fonts.googleapis.com/css?family=Belgrano' rel='stylesheet'>
+  
+
+  <div class="seller-page-header">
+
+    <div class="hamburger">
+      <a onclick="openNav()">
+        <div class="hb"></div>
+        <div class="hb"></div>
+        <div class="hb"></div>
+      </a>
+    </div>
+  <div style="position:absolute;top:0;margin-left:48px;margin-top:10px;" class="">
+   <label class="headinglabel">Seller Dashboard</label>
+   </div>
+    <input type="hidden" id="isLocationEdited" value="0">
+    <input type="hidden" id="saveLocation" value="">
+    <input type="hidden" id="currentEvent" value="">
+    <input type="hidden" id="" value="">
+    
+    <div class="ui menu" style="margin-left: 52px;">
+      <div class="item">
+        
+    <div class="ui category search">
+      
+      <div class="ui small icon input">
+        
+      
+        <i id="detectLocation" class="crosshairs icon link" onclick="FetchCitynPin(event)"></i>       
+        <input id="locationCity" class="prompt " type="text" style="width: 200px;" value="City & Place" placeholder="">    
+        <input id="locationPin" class="prompt " type="text" style="width: 130px;" value="67859" placeholder="">     
+        <input id="tkl" type="hidden" />
+           
+      </div>     
+    
+    </div>
+      </div>
+
+     
+     </div>
+     <input id="messageText" type="hidden" value="" />
+ 
+  </div>
+  <div>
+  
+
+   </div>
+  </div>
+</head>
+
+<body>
+  
+  <div id="mySidenav" class="sidenav">
+  
+  <label class="headLabel" style="margin-left:20px;">Welcome {{seller_name}}</label>
+    <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
+    <a href="#">Home</a>
+    <a href="#">Products Listed</a>
+    <a href="#">Orders Received</a>
+    <a href="#">Taxation</a>
+    {% comment %} <a href="/blogs/seller/">Blogs & Articles</a> {% endcomment %}
+    <a href="#">Help/Contact us</a>
+  </div> 
+  
+  
+    {% block content %}
+   
+  {% endblock %}
+  
+  
+  <!--footer code starts  -->
+  <footer style="position: initial;bottom: 0;width: 100%;height: 35%;background-color: black;">   
+      <div style="display: flex;">
+        <div>
+          <ul style="list-style: none;">
+            <li> <a>
+              Shop by preference
+            </a>
+          </li>
+          <li>
+            <a>
+              Shop by Location
+            </a>
+          </li>
+          <li>
+            <a>
+              Buy a Gift
+            </a>
+          </li>
+          <li>
+            <a>
+              Privacy Policy
+            </a>
+          </li>
+          </ul>                      
+        </div>
+        <div>
+          <ul>
+            <li>
+
+            </li>
+          </ul>
+        </div>
+    </div>
+
+  </footer>
+
+ 
+  <script>
+
+ 
+  </script>
+
+
+
+<script src="{%static 'js/App.js' %}"></script>  
+<script src="{%static 'js/Misc.js' %}"></script>  
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script> 
+<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/semantic-ui/2.2.10/semantic.js"></script>
+
+  <!-- <script src="semantic/dist/semantic.min.js"></script> -->
+  <script src="https://cdn.jsdelivr.net/npm/semantic-ui@2.4.2/dist/semantic.min.js"></script>
+</body>
+
+     
+
+</html>

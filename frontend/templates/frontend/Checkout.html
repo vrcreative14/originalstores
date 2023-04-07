@@ -1,0 +1,106 @@
+{% extends 'base.html' %}
+
+{% load static %}
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset='utf-8'>
+    <meta http-equiv='X-UA-Compatible' content='IE=edge'>
+    <title>Page Title</title>
+    <meta name='viewport' content='width=device-width, initial-scale=1'>
+    <link rel='stylesheet' type='text/css' media='screen' href='main.css'>
+    <script src='main.js'></script>
+
+</head>
+<body>
+{% block content %}
+<div class="ui stackable ordered inverted fluid steps headingDiv" style="padding:1px;">
+  <div class="item step active">
+    <i class="truck icon blackicon"></i>
+    <div class="content">
+      <div class="title">Shipping</div>
+      <div class="description">Choose your shipping options</div>
+    </div>
+  </div>
+  <div class="item step">
+   <i class="payment icon"></i>
+    <div class="content">
+      <div class="title">Billing</div>
+      <div class="description">Enter billing information</div>
+    </div>
+  </div>
+  <div class="item step">
+    <div class="content">
+      <div class="title">Confirm Order</div>
+      <div class="description">Verify order details</div>
+    </div>
+  </div>
+</div>
+{% include 'Message.html' %}
+<div class="" style="padding:30px;">
+{% comment %} We require Shipping Address details to deliver the product at your doorstep. {% endcomment %}
+<input type="hidden" id="is_self_pickup" value="0">
+<div class="ui tab ">
+
+{% if addresses%}
+<div>
+      <button class="ui primary button">Add New Address</button>
+      </div>
+
+<h4 class="ui dividing header headLabel">Your Saved Address</h4>
+  <div class="horizontalFlex">
+  
+  <br/>
+{% for address in addresses%}  
+  <div class="card" style="margin-left:30px;padding:20px;">
+      <div><label class="promptLabel">{{address.address_line1}}</label></div>
+      {% if address.address_line2 %}
+      <div><label class="promptLabel">{{address.address_line2}}</label></div>
+      {% endif %}
+       <div><label class="promptLabel">{{address.pincode}}<label></div>
+      <div><label class="promptLabel">{{address.city}}<label></div>
+      <div><label class="promptLabel">{{address.state}}<label></div>
+      <div>
+      <button class="ui button generalBtn submitBtn" style="margin-top:20px;" value="{{address.pk}}" onclick="SetAddressInfo(this.value)">Deliver to this Address</button>
+      </div>
+      <br/>
+     
+  </div>  
+{% endfor %}
+ 
+<div class="verticalFlex" style="margin-left:20px;">
+<div class="verticalLine" style="height:100px;"></div><span style="margin-left:-15px;font-size:25px;padding-top:8px;padding-bottom:8px;">OR</span><div class="verticalLine" style="height:100px;"></div>
+</div>
+
+<div class="verticalFlex" style="align-self:center;margin-left:20px;margin-top:50px;">
+  <button class="ui green button submitBtn" value="" onclick="SetAddressInfo(this.value)">I'll Pickup the product from store</button>
+</div>
+</div>
+
+{% else %}
+   {% include 'ShippingInfo.html' %}
+{% endif %}
+</div>
+
+    <div class="ui active tab">
+        <div class="ui segment">        
+     
+        {% include 'PaymentInfo.html' %}
+           </div>
+
+    </div>
+
+
+</div>
+<script src="{% static 'js/Misc.js' %}"></script>
+
+
+{% endblock %}
+
+<script src="https://cdn.jsdelivr.net/npm/semantic-ui@2.4.2/dist/semantic.min.js"></script>
+</body>
+   
+   
+
+  
+</html> 

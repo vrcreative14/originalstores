@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<style>
+
+</style>
+</head>
+<body>  
+
+<div class="{{categories_div_class}}">
+{% for category in product_categories %}
+  <a class="ui dropdown item" style="font-size:17px;">{{category}}  
+   <i class="dropdown icon" style="background:transparent!Important;color:black!Important"></i>
+
+   {% comment %} <div class="menu">
+      <a class="item">Electronics</a>
+      <a class="item">Automotive</a>
+      <a class="item">Home</a>
+    
+    </div> {% endcomment %}
+   </a>
+{% endfor %}
+</div>
+
+</body>
+
+</html>

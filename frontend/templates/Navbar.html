@@ -1,0 +1,50 @@
+
+ <div class="navbar">     
+    <!-- <input id="demo" placeholder="" /> <i></i> -->
+    <style>
+      .transparentIcon{
+        background-color: transparent!Important;
+      }
+
+      i.icon{
+        display: inline!Important;
+      }
+    </style>                        
+             <a id="userProfile" class="signedin hidden">  {{user_name}}'s Vcnity</a>
+             <div id="profileMenu" class="ui vertical menu hidden" style="position: absolute;width:130px;top:85px;">
+              <a class="active teal item">
+                Notifications
+                <div class="ui teal left pointing label">1</div>
+              </a>
+              <a class="item">
+                Your Favourites
+                <div class="ui label">51</div>
+              </a>
+              <a class="item" onclick="logout()">
+                Logout
+                <div class="ui label">1</div>
+              </a>
+
+              <a class="item">
+                Logout
+                <div class="ui label">1</div>
+              </a>
+              <div class="item">
+               
+              </div>
+            </div>
+              <a class="hidden"> <span></span></a>
+          
+             <!-- <a style="background-image: url('{{ baseUrl }}/cart.png')" class="imgClick"> -->
+              <a class="signedin hidden">
+              <i class="shopping cart icon transparentIcon"></i>
+              Cart
+              </a>  
+           
+            <a class="signedout hidden" href="../SignUp">      
+            <i class="user plus icon transparentIcon">       
+            </i>
+                Login/SignUp                   
+            </a>
+            <a class="signedout hidden" href="#">Shop Now</a>
+  </div>

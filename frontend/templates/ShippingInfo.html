@@ -1,0 +1,113 @@
+
+<!DOCTYPE html>
+<!--[if lt IE 7]>      <html class="no-js lt-ie9 lt-ie8 lt-ie7"> <![endif]-->
+<!--[if IE 7]>         <html class="no-js lt-ie9 lt-ie8"> <![endif]-->
+<!--[if IE 8]>         <html class="no-js lt-ie9"> <![endif]-->
+<!--[if gt IE 8]>      <html class="no-js"> <!--<![endif]-->
+<html>
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <title></title>
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link rel="stylesheet" href="">
+    </head>
+    <body>
+    
+    <div class="">
+
+      <div class="ui two column very relaxed stackable grid">
+         <div class="column" style="padding-left:50px;">
+        <div class="row">
+                        <div class="verticalFlex">
+                              <label class="inputLabel">Name</label>                                                        
+                              <input id="addressee_name"  value="{{request.session.user_name}}" class="inputDetails" style="width:300px;"/>
+                              <label>
+                           </div>
+         </div>
+
+        
+
+           <div class="row">
+                <div class="verticalFlex">
+                      <div>
+                           <label class="inputLabel">Address Line1</label>        
+                          <span id="addressLine1_errorLabel" class="ui left pointing red basic label">Required</span>             
+                     </div>                                         
+                     <input class="inputDetails" id="address_line1" type="text" name="shipping[first-name]" placeholder="House No./Street Name">
+                     </div>
+          </div>
+
+           <div class="row horizontalFlex">
+             <div class="verticalFlex" style="flex-grow:3">
+                      <label class="inputLabel">Address Line2</label>
+                                    <input class="inputDetails" id="address_line2" type="text" name="shipping[address]" placeholder="Street Address">
+                     </div>
+
+                 <div class="verticalFlex" style="margin-left:10px;flex-grow:2;">
+                                    <label class="inputLabel">Nearest Landmark</label>
+                                    <input class="inputDetails" id="addressLine2" type="text" name="shipping[address]" placeholder="Mention nearest landmark">
+                     </div>
+         </div>
+
+           <div class="row horizontalFlex">
+          
+              
+                <div class="verticalFlex">
+                          <div>
+                              <label class="inputLabel">Pincode</label>
+                              <span id="pincode_errorLabel" class="ui left pointing red basic label">Required</span>             
+                          </div>
+                                    <input class="inputDetails" id="pincode" type="text" name="shipping[address]" placeholder="Area Pincode" style="width:130px;">
+                </div>
+
+                                  <div class="verticalFlex" style="margin-left:10px;">
+             <div>
+                      <label class="inputLabel">City</label>
+                       <span id="city_errorLabel" class="ui left pointing red basic label">Required</span>             
+              </div> 
+                      <input class="inputDetails" id="city" type="text" name="shipping[address]" placeholder="City Name" style="width:200px;">         
+              
+                     </div>
+
+                         <div class="verticalFlex" style="margin-left:10px;">
+             <div class="">
+                      <label class="inputLabel">State</label>
+                      <span id="state_errorLabel" class="ui left pointing red basic label">Required</span>             
+              </div>
+                                          <select id="state" class="ui dropdown selectDetails">
+                                        {% for state in states%}
+                                             <option vlaue="{{state}}">{{state}}</option>
+                                        {% endfor%}
+                                 </select>
+                     </div>
+
+          </div>
+          <br/>       
+
+         <div class="row">
+           <button class="ui fluid blue button submitBtn" onclick="SetAddressInfo()" style="font-size:16.5px;">Save & Next</button>
+         </div>                      
+</div>
+ 
+    {% comment %} <div class="" style="margin-left:125px;">
+         <button class="ui blue button submitBtn" onclick="ValidateSaveAddress()">Save & Next</button>
+    </div> {% endcomment %}
+     <div class="middle aligned column">
+          <label class="headLabel" style="font-size:27px !Important;">OR</label>
+         <button class="ui green button submitBtn" value="" style="margin-left:20px;font-size:16.5px;width:max-content;padding:20px 25px 35px 25px;" onclick="SetAddressInfo(this.value)">I will Pickup the product from store</button>
+     </div>
+
+</div>
+  {% comment %} <div class="ui vertical divider">
+    <span style="" class="headLabel">OR</span>
+      {% comment %} <div class="verticalFlex" style="margin-left:20px;">
+        <div class="verticalLine" style="height:100px;"></div><span style="margin-left:-15px;font-size:25px;padding-top:8px;padding-bottom:8px;">OR</span><div class="verticalLine" style="height:100px;"></div>
+      </div> 
+  </div> {% endcomment %}
+</div>
+</div>
+        
+    </body>
+</html>

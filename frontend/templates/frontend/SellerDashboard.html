@@ -1,0 +1,124 @@
+{% extends 'SellerBase.html' %}
+
+{% load static %}
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <title></title>
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link rel="stylesheet" href="">
+    </head>
+    <body>     
+      {% block content %}      
+      
+        <div class="centeredDiv headingDiv">
+         <span class="headingSpan"> Seller Dashboard </span>       
+         </div>
+            <br/>
+           {% include 'Message.html' %}
+            <h4 class="ui dividing header headLabel" style="padding-left:20px;">Seller Profile</h4>               
+            <div style="display:flex;" class="ui segment">
+                    <div>
+                    <label class="headingSpan">Name</label> :<span class="headingSpan"> {{seller_name}} </span>
+                    </div>
+                
+            </div>       
+          <div class="" style="display:flex;flex-direction:column;">                 
+             {% comment %} <button class="ui small button" onclick="GoToPage('AddProducts')" style="">Add Product in My Store</button> {% endcomment %}            
+             <div  class="ui segment" style="width:40%;">
+               <h4 class="ui dividing header headLabel" style="padding-left:20px;">Your Listed Shops/Businesses</h4>
+               {% if stores %}
+                   <button class="ui primary button" onclick="GoToPage('/AddStore/')">Add New Store</button>
+             
+             {% for store in stores %}
+                    <div class="ui segment" style="padding:25px;">
+                    <label class="headingSpan">Store Name</label> :<span class="headingSpan"> {{store}} </span>
+                 
+                    </div>
+                   
+             {% endfor %}
+             {% else %}             
+             <div class="ui segment">
+                    <label class="headingSpan">You have not created your Store yet.</label> 
+                    <button onclick="GoToPage('/AddStore/')" class="ui primary button">Create My Store</button>
+             </div>
+             {% endif %}
+               <div class="centeredDiv">                                  
+         
+            </div>
+            </div>                
+       {% comment %} <div class="ui two wide segment">
+          
+       </div> {% endcomment %}
+         
+          <div class="ui segment" style="margin:15px;">
+          <h4 class="ui dividing header headLabel" style="padding-left:20px;">Your Listed Products</h4>
+          <div class="">
+                 
+                   {% if stores %}
+                    <button class="ui green button" onclick="GoToPage('/AddProducts')">Add New Product</button>
+                    {% else %}
+                    <button class="ui green button" onclick="DisplayMessage('Add Your Store Info to start adding Product','','info')" style="opacity:50%;">Add Product</button>
+                {% endif %}
+                  <br/>
+                  </div>
+                {% if products%}
+               <div class="card-container">
+             
+           
+            
+                {% for product in products %}  
+                <div class="card" style="width:250px;">
+              
+                    {% comment %} <div class="ui segment"> {% endcomment %}
+                    <div class="category-title">
+                    <label class="headingSpan">{{product.name}}</label> 
+                  </div>
+                  {% if product.image_thumbnail  %}
+                        <img src="https://storage.googleapis.com/vcnity-solutions.appspot.com/{{product.image_thumbnail}}" style="width:150px;height:140px;">
+                  {% else %}
+                        <img src="https://storage.googleapis.com/vcnity-solutions.appspot.com/static/images/misc/image_not_available.jpg" style="width:150px;height:140px;"/>
+                    {% endif %}
+
+                    <div>
+                    {% if product.is_approved %}
+                    <label class="headingSpan">Status</label><label class="cardLabel successmsg">Approved</label>
+                    {% else %}
+                    <label class="inputLabel infoSpan">Status:</label><label> Not Approved</label>
+                    {% endif %}
+                    </div>
+                  
+                    {% comment %} <br/>
+                    <label>{{product.slug_field}}</label> {% endcomment %}
+                    {% comment %} :<span class="headingSpan"> {{store}} </span> {% endcomment %}  
+                    <div>
+                        <button class="ui button" style="float:right;" onclick="GoToPage('/AddProducts?product={{product.slug_field}}')">Edit Info</button>                                 
+                    </div>                                                
+              </div>
+                {% endfor %}
+                
+            </div>
+              
+                {% else %}
+                    <div class="ui segment">
+                    <label class="headingSpan">No Products Listed as of now</label> 
+                    <label class="headingSpan">Add Products to your Store</label> 
+                    {% comment %} <button class="ui primary button">Add Store</button> {% endcomment %}
+                </div>
+              {% endif %}
+
+            </div>
+             </div>   
+          <script>
+          window.onload = function(){
+            debugger
+            let msg = document.getElementById('messageText').value
+            DisplayMessage('',msg,true)
+          }
+          </script>
+      {% endblock %}
+    </body>
+</html>

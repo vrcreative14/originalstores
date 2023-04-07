@@ -1,0 +1,157 @@
+{% extends 'base.html' %}
+{% load static %}
+<!DOCTYPE html>
+<html>
+
+<head>
+<script data-ad-client="ca-pub-3538037567823742" async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+<style>
+  h3,h4{
+     color:rgb(21, 67, 96)
+  }
+</style>
+
+</head>
+
+<body>
+
+    {% block content %}
+
+
+        {% comment %} {% include 'ProductCategories.html' %} {% endcomment %}
+    {% include 'Message.html' %}
+        <!-- Load Facebook SDK for JavaScript -->
+      <div id="fb-root"></div>
+      <script>
+        window.fbAsyncInit = function() {
+          FB.init({
+            xfbml            : true,
+            version          : 'v10.0'
+          });
+        };
+
+        (function(d, s, id) {
+        var js, fjs = d.getElementsByTagName(s)[0];
+        if (d.getElementById(id)) return;
+        js = d.createElement(s); js.id = id;
+        js.src = 'https://connect.facebook.net/en_US/sdk/xfbml.customerchat.js';
+        fjs.parentNode.insertBefore(js, fjs);
+      }(document, 'script', 'facebook-jssdk'));</script>
+
+      <!-- Your Chat Plugin code -->
+      <div class="fb-customerchat"
+        attribution="setup_tool"
+        page_id="111672204047171">
+      </div>
+    <!--Select your category-->
+     {% comment %} <div class="heading">
+         <span class="headingSpan darkLabel">Select your category</span>
+     </div>
+    <div class="ui segment">
+    <img class="ui left small image" src="https://storage.googleapis.com/vcnity-solutions.appspot.com/static/images/website/avatar_1201.png">
+        <p>I am a Shopkeeper/Store owner</p>
+    {% comment %} <div class="ui divider"></div> 
+    <img class="ui right floated medium image" src="https://storage.googleapis.com/vcnity-solutions.appspot.com/static/images/website/buyer_vector_01234.png">
+         <p>I am a Buyer</p>
+    <div class="ui divider"></div>
+    <img class="ui left small image" src="https://storage.googleapis.com/vcnity-solutions.appspot.com/static/images/website/home_delivery_10987.png">
+        <p>I provide Services</p>
+    </div> {% endcomment %}
+
+
+  
+<div class="heading">
+         <span class="headingSpan darkLabel">Shop by category</span>
+</div>
+
+    <div class="ui four column stackable grid">
+  <div class="column">
+    <div class="ui segment">
+        <a href="/Products/?category=Fashion+%26+Clothing">
+            <img class="ui medium image" src="https://storage.googleapis.com/vicinity-solutions.appspot.com/Fashion%26Clothing.jpg" style="width:330px;height:260px;">
+            <span class="anchor">Fashion & Clothing</span>
+        </a>
+    </div>
+  </div>
+  <div class="column">
+    <div class="ui segment">
+      <a href="/Products/?category=household_essentials">
+      <img class="ui medium image" src="https://storage.googleapis.com/vicinity-solutions.appspot.com/household_essentials_50.jpg" style="width:300px;height:250px;">
+      <span class="anchor">Household Essentials</span>
+      </a>
+    </div>
+  </div>
+  <div class="column">
+    <div class="ui segment">
+        <a href="/Products/?category=Kitchen%20Essentials">
+          <img class="ui large image" src="https://storage.googleapis.com/vicinity-solutions.appspot.com/kitchen_essentials.jpg" style="width:300px;height:250px;">
+          <span class="anchor">Kitchen Essentials</span>
+        </a>
+    </div>
+  </div>
+  <div class="column">
+    <div class="ui segment">
+       <a href="/Products/?category=handicrafts_home_decor">
+           <img class="ui medium image" src="https://storage.googleapis.com/vicinity-solutions.appspot.com/handicrafts_home_decor.jpg" style="width:330px;height:260px;">
+           <span class="anchor">Handicrafts & Home Decor</span>
+      </a>
+    </div>
+  </div>
+</div>
+
+
+<div class="heading">
+  <span class="headingSpan darkLabel">Your Explorations </span></div>
+<div class="ui four column stackable grid">
+<div class="column">
+<div class="ui segment">
+ <a href="/register/?type=seller">
+     <img class="ui medium image" src="{% static 'images/man-doing-online-payment.png' %}">
+     <span class="anchor">Coupons & Rewards</span>
+ </a>
+</div>
+</div>
+<div class="column">
+<div class="ui segment">
+<a href="/register/?type=buyer">
+<img class="ui medium image" src="https://storage.googleapis.com/vcnity-solutions.appspot.com/static/images/website/buyer_vector_01234.png">
+<span class="anchor">Great Offers</span>
+</a>
+</div>
+</div>
+<div class="column">
+<div class="ui segment">
+ <a href="/">
+   <img class="ui medium image" src="{% static 'images/shopping.png' %}" style="height: 227px;">
+   <span class="anchor">Vehicle Accessories</span>
+ </a>
+</div>
+</div>
+<div class="column">
+<div class="ui segment">
+<a href="/">
+    <img class="ui medium image" src="https://storage.googleapis.com/vcnity-solutions.appspot.com/static/images/website/services_tailoring_small_19678.png">
+    <span class="anchor">Tools & Accessories</span>
+</a>
+</div>
+</div>
+</div>
+
+
+   
+
+    <div style="display: flex;justify-content: space-evenly;">
+        <div>
+            <!-- <p>Hey dear! We heartly welcome you in the World of Original Stores. .</p> -->
+
+        </div>
+    </div>
+    <script src="https://unpkg.com/react@16/umd/react.development.js" crossorigin></script>
+    <script src="https://unpkg.com/react-dom@16/umd/react-dom.development.js" crossorigin></script>
+    <script src="{%static 'js/like_button.js' %}"></script>
+    {% endblock %}
+    
+</body>
+
+
+</html>

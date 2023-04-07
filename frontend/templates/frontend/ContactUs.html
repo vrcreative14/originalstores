@@ -1,0 +1,105 @@
+{% extends 'base.html' %}
+
+{% load static %}
+<!DOCTYPE html>
+<!--[if lt IE 7]>      <html class="no-js lt-ie9 lt-ie8 lt-ie7"> <![endif]-->
+<!--[if IE 7]>         <html class="no-js lt-ie9 lt-ie8"> <![endif]-->
+<!--[if IE 8]>         <html class="no-js lt-ie9"> <![endif]-->
+<!--[if gt IE 8]>      <html class="no-js"> <!--<![endif]-->
+<html>
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <title></title>
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link rel="stylesheet" href="">
+    </head>
+    <body>
+        <!--[if lt IE 7]>
+            <p class="browsehappy">You are using an <strong>outdated</strong> browser. Please <a href="#">upgrade your browser</a> to improve your experience.</p>
+        <![endif]-->
+{% block content%}
+   
+
+    <div style="padding: 10px 10px 10px 10px">
+        <h4 class="ui dividing header">Connect with us on Social Media</h4>    
+        <br/>
+    <div style="" class="ui form">
+      <div class="five wide field">
+            <label class="" >Your Name</label>
+            <input class="ui input focus" />
+      </div>
+      <div class="five wide field">
+            <label class="" >Mobile number</label>
+            <input class="ui input focus" />
+      </div>
+      
+      <div class="five wide field">
+            <label class="" >Email</label>
+            <input class="ui input focus" />
+      </div>  
+      <div class="five wide field">
+            <label class="" >Type your message here</label>
+            <textarea></textarea> 
+      </div>  
+   
+      <br/>
+      <button class="ui yellow button submitBtn" onclick="">Submit Message</button>                      
+    </div>
+
+</div>
+
+<br/>
+    <div style="padding:10px 10px 10px 10px;">
+          <h4 class="ui dividing header">Connect with us on Social Media</h4>           
+        <div class="ui grid">
+
+              <div class="row">
+                    <div class="eight wide column">
+                    <span class="infoLabel">
+                          We are available for your help and queries, click on the below given social media icons and message us your queries through these social media platforms.
+                    </span>
+                    </div>                 
+                  
+            </div> 
+
+            <div class="row">
+                    <div class="three wide column">
+                       <button class="ui large circular  facebook icon button" onclick="">
+                        <i class="facebook icon"></i>  
+                        </button>                                   
+                    </div>
+                    <div class="three wide column">
+                        <button class="ui circular instagram icon button" onclick=""/>                            
+                        <i class="instagram icon"></i>                                              
+                        </button>                                   
+                    </div>
+                    <div class="three wide column">
+                        <button class="ui circular youtube icon button" onclick="">                            
+                        <i class="youtube icon"></i>                                              
+                        </button>                                   
+                    </div>
+                    <div class="three wide column">
+                      
+                    </div>
+                    <div class="three wide column">
+                                   
+                    </div>
+            </div>
+            <h4 class="ui diving header">Our Email Id</h4>
+            <div class="row">
+                    <div class="three wide column">
+                                   <span class="infoLabel">vrcreative14@gmail.com</span>
+                    </div>
+                   
+            </div>
+           
+        </div>
+      </div>
+      <br/>
+      <br/>
+        <script src="" async defer></script>
+        {% endblock %}
+    </body>
+</html>

@@ -1,0 +1,63 @@
+{% extends 'base.html' %}
+{% load static %}
+
+<!DOCTYPE html>
+<html>
+    <head>        
+         
+    </head>
+    <body>
+{% block content %}
+<input type="hidden" id="productType" value={{request.GET.name}}/>
+<div>
+    <div style="color: black;display: flex;flex-direction: column;background-color: aliceblue;">  
+        <label style="white-space: nowrap;">Filter by </label> 
+        <div>
+            <h5>Categories</h5>
+                <ul style="list-style-type: none;margin: 0;padding: 0;width: 200px;background-color: #f1f1f1;">
+                    {% for category in Categories %}
+                       <li><input type="checkbox"></li>
+                    {% endfor %}
+                </ul>
+        </div>         
+        <div>
+            <h5>Fabric</h5>
+                <ul style="list-style-type: none;margin: 0;padding: 0;width: 200px;background-color: #f1f1f1;">
+                    <li><input type="checkbox"></li>
+                    <li><input type="checkbox"></li>
+                    <li><input type="checkbox"></li>
+                    <li ><input type="checkbox"></li>
+                </ul>
+        </div>         
+    </div>
+
+   
+       
+    <div class="card-container">
+          
+        {% for article in articles %}
+        <div class="card">
+            <!-- <header class="article-header"> -->
+                <div>
+                    <div class="category-title" style="color: white !Important;">
+                        {{article.name}}
+                        <span class="date">Jan 19, 2020</span>
+                    </div>
+                    {% if article.image == '' %}
+                    <div style="background-image: url({{article.imgPath}});" class="productDesc"> </div>
+                    {% else %}
+                    <div style="background-image: url(https://storage.googleapis.com/vicinity-solutions.appspot.com/{{article.image}});" class="productDesc"></div>
+                    {% endif %}
+                   
+                </div>
+               <div><label>Starts from $</label>{{article.price}}</div>
+                
+        </div>
+        {% endfor %}    
+
+        </div>       
+</div>
+</div>
+{% endblock %}
+
+</body>

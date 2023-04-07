@@ -1,0 +1,24 @@
+
+<div class="centeredDiv">   
+  <div class="ui message showMessage" style="display: none;">
+        <i class="close icon" style="background-color:transparent!Important;" value=""></i>
+            <div class="header">
+            
+            </div>       
+            <p style="font-weight: 500;">
+                 <span class="ui label"></span>
+            </p>    
+  </div>
+</div>
+<div style="position:fixed; bottom:305px" id="messagebar"></div>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script> 
+<script>
+ $('.message .close')
+    .on('click', function() {
+        $(this)
+            .closest('.message')
+            .transition('scale');
+    document.querySelector('.close').value = '1'
+
+    });
+</script>

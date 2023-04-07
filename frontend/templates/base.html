@@ -1,0 +1,178 @@
+{%load static %}
+{%static "images" as baseUrl%}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+
+  <meta charset="UTF-8">
+  {% comment %} <script data-ad-client="ca-pub-2886563858806025" async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script> {% endcomment %}
+  <script data-ad-client="ca-pub-3538037567823742" async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+  <title>{% block  title %} {% endblock %}</title>
+
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/semantic-ui@2.4.2/dist/semantic.min.css">
+  <link rel="stylesheet" type="text/css" href="{%static 'css/App.css'%}">
+  
+  <link href='https://fonts.googleapis.com/css?family=Barlow' rel='stylesheet'>
+  <link href='https://fonts.googleapis.com/css?family=Belgrano' rel='stylesheet'>
+  <link rel="preconnect" href="https://fonts.gstatic.com">
+  <link href="https://fonts.googleapis.com/css2?family=Teko:wght@300&display=swap" rel="stylesheet"> 
+  
+
+  <div class="" style="background-image: linear-gradient(to bottom right, rgb(146, 167, 224 , 1), rgb(94, 118, 182,0.9));position: relative;right: 10px;display:flex;justify-content: flex-end;">
+    <select onchange="ChangeLanguage();">
+      <option>Hindi</option>
+      <option>English</option>
+   </select>
+   </div>
+
+  <div class="page-header">
+      <div class="hamburger">
+          <a onclick="openNav()">
+                <div class="hb"></div>
+                <div class="hb"></div>
+                <div class="hb"></div>
+          </a>
+    </div>    
+
+   
+    <input type="hidden" id="isLocationEdited" value="0">
+    <input type="hidden" id="saveLocation" value="">
+    <input type="hidden" id="currentEvent" value="">
+    
+    <input type="hidden" id="" value="">
+    
+    <div class="ui stackable menu" style="margin-left: 52px;"> 
+      <div class="item">      
+          <div class="ui category search">      
+                <div class="ui small icon input">            
+                      <i id="detectLocation" class="crosshairs icon link" onclick="FetchCitynPin(event)"></i>       
+                      <input id="locationCity" class="prompt " type="text" style="width:auto;" value="City Square" placeholder="">    
+                      <input id="locationPin" class="prompt " type="text" style="width:auto;" value="45623" placeholder="">          
+                </div>          
+          </div>      
+      </div>
+
+      <div class="item">
+    <div class="ui category search">
+      <div class="ui large icon input">
+        <input class="prompt searchInput" type="text" placeholder="Search Products..." onchange="SearchShopsProducts()">
+        <i class="search icon link" onclick="SearchShopsProducts()"></i>
+      </div>
+      <div class="results"></div>
+    </div>
+     </div>
+  </div>
+ 
+  <div>
+  <input id="messageText" type="hidden" value="" />
+  
+   {% include 'HeaderMenu.html'%}
+   </div>
+  </div>
+</head>
+
+<body>
+  
+  <div id="mySidenav" class="sidenav">
+    <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
+    <a href="/">Home</a>
+    <a href="/cart">Your Cart</a>
+    {% if user.is_authenticated%}
+      <a href="#"> Order History </a>
+    {% else %}
+    {% endif %}
+    {% if request.session.seller is None %}
+     <a href="/vikreta">Join as a Seller</a>
+    {% else %}    
+    <a href="/SellerDashboard">Seller Dashboard</a>
+    {% endif %}
+    {% comment %} <a href="/api/logout">Logout</a> {% endcomment %}
+    <a href="/contact-us">Help/Contact us</a>
+  </div>   
+    {% block content %}
+    
+   
+    {% endblock %}
+  
+  
+  <!--footer code starts  -->
+  
+  <br/>
+  
+  <footer style="position: initial;bottom: 0;width: 100%;height: 35%;background-color: black;">   
+    <div style="display: flex;">  
+    <div style="display: flex;text-align: left;">
+        <div>
+          <ul style="list-style: none;">
+            <li> <a>
+              Shop by preference
+            </a>
+          </li>
+        <li></li>
+          <li>
+            <a>
+              Shop by Location
+            </a>
+          </li>
+          <li>
+            <a>
+              Buy a Gift
+            </a>
+          </li>
+          <li>
+            <a>
+              Change Location
+            </a>
+          </li>
+          <li>
+           
+          </li>
+          </ul>                      
+        </div>
+       
+    </div>
+    <div style="display: flex;text-align: left;">
+      <div>
+      <ul>
+        <li>
+          <a>
+           Blogs
+          </a>
+        </li>
+        <li>
+          <a>
+           Categories
+          </a>
+        </li>
+        <li>
+          <a>
+           Rewards
+          </a>
+        </li>
+        <li>
+          <a>
+           Contact Us
+          </a>
+        </li>
+      </ul>
+    </div>
+    </div>
+    </div>
+  </footer>
+
+ 
+  <script>
+
+  </script>
+
+
+
+<script src="{%static 'js/App.js' %}"></script>  
+<script src="{%static 'js/Misc.js' %}"></script>  
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script> 
+<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/semantic-ui/2.2.10/semantic.js"></script>
+
+  <script src="https://cdn.jsdelivr.net/npm/semantic-ui@2.4.2/dist/semantic.min.js"></script>
+</body>    
+</html>

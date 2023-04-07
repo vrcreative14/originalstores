@@ -1,0 +1,168 @@
+{% extends 'base.html' %}
+
+{% load static %}
+<!DOCTYPE html>
+<!--[if lt IE 7]>      <html class="no-js lt-ie9 lt-ie8 lt-ie7"> <![endif]-->
+<!--[if IE 7]>         <html class="no-js lt-ie9 lt-ie8"> <![endif]-->
+<!--[if IE 8]>         <html class="no-js lt-ie9"> <![endif]-->
+<!--[if gt IE 8]>      <html class="no-js"> <!--<![endif]-->
+<html>
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <title></title>
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link rel="stylesheet" href="">
+        <script data-ad-client="ca-pub-3538037567823742" async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+    
+    </head>
+    <body>
+        <!--[if lt IE 7]>
+            <p class="browsehappy">You are using an <strong>outdated</strong> browser. Please <a href="#">upgrade your browser</a> to improve your experience.</p>
+        <![endif]-->
+        {% block content%}
+        <div class="headingDiv centeredDiv">
+        <span class="headingSpan">Welcome to vcnity Blogs</span>
+        </div>
+        <div class="ui segment">
+         <h4 class="ui dividing header headLabel">Top Stories</h4>
+         
+
+         <div class="ui items">
+ {% for blog in blogs%}
+          <div class="item">
+         
+    <div class="image">
+      <img src="https://storage.googleapis.com/vcnity-solutions.appspot.com/{{blog.image1}}">
+    </div>
+    <div class="content">
+      <a class="header" href="detail/?dveucvuyr3vybrvbcurbno={{blog.pk}}">{{blog.title}}</a>
+      <div class="meta">
+        <span>Author: {{blog.author}}</span>
+      </div> <div class="extra">
+        {{blog.timestamp}}
+      </div>
+      <div class="description">
+        <p>{{blog.content_initial}}</p>
+      </div>
+     
+    </div>
+  </div>
+  {% endfor %}
+ 
+  {% comment %} <div class="item">
+    <div class="image">
+      <img src="/images/wireframe/image.png">
+    </div>
+    <div class="content">
+      <a class="header">Header</a>
+      <div class="meta">
+        <span>Description</span>
+      </div>
+      <div class="description">
+        <p></p>
+      </div>
+      <div class="extra">
+        Additional Details
+      </div>
+    </div>
+  </div> {% endcomment %}
+</div>
+        </div>
+
+         <div class="headingDiv centeredDiv">
+        <span class="headingSpan">My City Blogs</span>
+        </div>
+        <h4 class="ui dividing header headLabel">Find blogs specific to your city from here</h4>
+
+
+{% comment %} <div class="ui segment">
+        <div class="card container">
+        <div class="card">
+        
+         <a class="ui medium image" href="#">
+                <img src="https://storage.googleapis.com/vicinity-solutions.appspot.com/static/images/blogs/cities/Rajastan_Jaipur_India.jpg">
+            </a>
+        <div>
+        <span>Jaipur</span>
+        </div>
+        </div>
+        <div class="card">
+         <div class="ui medium image" href="#">
+                <img src="https://storage.googleapis.com/vicinity-solutions.appspot.com/static/images/blogs/cities/Rajastan_Jaipur_India.jpg">
+            </div>
+        <div>
+        <span>Jaipur</span>
+        </div>
+        </div>
+        <div class="card">
+        <div class="ui medium image productDesc" href="#">
+                <img src="https://storage.googleapis.com/vicinity-solutions.appspot.com/static/images/blogs/cities/Rajastan_Jaipur_India.jpg">
+            </div>
+        <div>
+        <span>Jaipur</span>
+        </div>
+        </div>
+        <div class="card">
+       <div class="ui medium image productDesc" href="#">
+                <img src="https://storage.googleapis.com/vicinity-solutions.appspot.com/static/images/blogs/cities/Rajastan_Jaipur_India.jpg">
+            </div>
+        <div>
+        <span>Jaipur</span>
+        </div>
+        </div>
+        </div>
+        </div> {% endcomment %}
+<div class="ui segment">
+ <div class="ui five column stackable grid">
+                
+                <div class="column">
+                    <div class="ui fluid card">
+                            <a class="ui medium rounded image" href="#">
+                                <img class="ui medium rounded image" src="https://storage.googleapis.com/vicinity-solutions.appspot.com/static/images/blogs/cities/jaipur_hawa_mahal.jpg">
+                            </a>
+                    <div class="content">
+                        <a class="header" href="#">Jaipur</a>
+                            <div class="meta">
+                      
+                            </div>
+                    </div>
+                </div>
+            </div>
+                <div class="column">
+                    <div class="ui fluid card ">
+                            <a class="ui medium rounded image " href="#">
+                                <img class="ui medium rounded image" src="https://storage.googleapis.com/vicinity-solutions.appspot.com/static/images/blogs/cities/victoria_memorial_kolkata.jpg">
+                            </a>
+                    <div class="content">
+                        <a class="header" href="#">Kolkata</a>
+                            <div class="meta">
+                      
+                            </div>
+                    </div>
+                </div>
+            </div>
+             <div class="column">
+                <div class="ui fluid card">
+                <a class="large image" href="#">
+                    <img class="ui medium rounded image" src="https://storage.googleapis.com/vicinity-solutions.appspot.com/static/images/blogs/cities/Lucknow_railway_station.jpg">
+                </a>
+                <div class="content">
+                    <a class="header" href="#">Lucknow</a>
+                    <div class="meta">
+                    
+                    </div>
+                </div>
+                </div>
+                </div>
+
+</div>
+
+        {% endblock %}
+        
+        <script src="" async defer></script>
+    </body>
+
+
+</html>

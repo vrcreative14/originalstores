@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<!--[if lt IE 7]>      <html class="no-js lt-ie9 lt-ie8 lt-ie7"> <![endif]-->
+<!--[if IE 7]>         <html class="no-js lt-ie9 lt-ie8"> <![endif]-->
+<!--[if IE 8]>         <html class="no-js lt-ie9"> <![endif]-->
+<!--[if gt IE 8]>      <html class="no-js"> <!--<![endif]-->
+<html>
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <title></title>
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link rel="stylesheet" href="">
+    </head>
+    <body>
+        <!--[if lt IE 7]>
+            <p class="browsehappy">You are using an <strong>outdated</strong> browser. Please <a href="#">upgrade your browser</a> to improve your experience.</p>
+        <![endif]-->
+        <div id="otpVerificationDiv" class="centeredDiv" style="display:none;">
+         
+            
+        <div id="" class="ui page grid">
+                   
+         <div class="" id="mobileOTPInfo">
+             <div class="eight wide field">
+                   <label class="infoLabel">Enter the OTP received on your email id/mobile number</label>
+             </div>
+         </div>
+        
+         <form class="ui attached ten wide form" id="formSubmitOTP"> 
+            <div class="fields">
+                <div class="twelve wide field">     
+                    <div class="inline required field">
+                            <label >OTP Verification</label>
+                            <span id="enterotpLabel" class="ui left pointing red basic label" style="display: none;">Enter valid OTP sent to your Mobile number</span>             
+                     </div>
+                     <div>
+                           <input class="verifyOTP" type="text"  id="otpMobile1"  maxlength="1" oninput="{this.value=this.value.replace(/[^0-9]/g,'')};";>
+                           <input class="verifyOTP" type="text"  id="otpMobile2"  maxlength="1" oninput="this.value=this.value.replace(/[^0-9]/g,'');";>
+                           <input class="verifyOTP" type="text"  id="otpMobile3"  maxlength="1" oninput="this.value=this.value.replace(/[^0-9]/g,'');";>
+                           <input class="verifyOTP" type="text"  id="otpMobile4"  maxlength="1" oninput="this.value=this.value.replace(/[^0-9]/g,'');";>                                                         
+                           <input class="verifyOTP" type="text"  id="otpMobile5"  maxlength="1" oninput="this.value=this.value.replace(/[^0-9]/g,'');";>                                                         
+                           <input class="verifyOTP" type="text"  id="otpMobile6"  maxlength="1" oninput="this.value=this.value.replace(/[^0-9]/g,'');";>                                                         
+                           <a class="ui button" onclick="sendOTPMail()">Resend</a>
+                     </div>                   
+                                        
+                  </div>                  
+            </div>
+            <br/>
+            
+            <a class="ui green button submitBtn" onclick="CheckOTP()">Submit</a>
+         </form>                                                                     
+        </div>
+        
+        </div>
+       
+        
+                   
+                   
+                           
+                    
+               
+    </div>
+        
+        
+        
+        <script src="" async defer></script>
+        <script>
+var otp1 = document.getElementById("otpMobile1"),
+    otp2 = document.getElementById("otpMobile2"),
+    otp3 = document.getElementById("otpMobile3"),
+    otp4 = document.getElementById("otpMobile4");
+    otp5 = document.getElementById("otpMobile5");
+    otp6 = document.getElementById("otpMobile6");
+    
+
+if (otp1 !== null)
+    otp1.onkeyup = function() {
+        if (this.value.length === parseInt(this.attributes["maxlength"].value)) {
+            otp2.focus();
+        }
+    }
+
+if (otp2 !== null)
+    otp2.onkeyup = function() {
+        if (this.value.length === parseInt(this.attributes["maxlength"].value)) {
+            otp3.focus();
+        }
+    }
+
+if (otp3 !== null)
+    otp3.onkeyup = function() {
+        if (this.value.length === parseInt(this.attributes["maxlength"].value)) {
+            otp4.focus();
+        }
+    }
+if (otp4 !== null)
+    otp4.onkeyup = function() {
+        if (this.value.length === parseInt(this.attributes["maxlength"].value)) {
+            otp5.focus();
+        }
+    }
+
+if (otp5.focus !== null)
+    otp5.onkeyup = function() {
+        if (this.value.length === parseInt(this.attributes["maxlength"].value)) {
+            otp6.focus();
+        }
+    }
+
+                function CheckOTP  () {
+                    debugger
+            if (otp1.value == undefined || otp2.value == '' || otp3.value == '' || otp4.value=='' || otp5.value == '' || otp6.value == ''){
+                OpenMessageBar('Enter 6 digit valid OTP')
+                return;
+            }
+                
+            var cred = document.getElementsByName('credential')
+            for(let j=0;j<cred.length; j++){
+                if (cred[j].value == ''){
+                    continue
+                }
+                credential = cred[j].value
+            }
+            var otp = document.getElementsByClassName('verifyOTP')
+            otpvalue = ""
+            for (let i = 0; i <= 5; i++) {
+                if (otp[i].value === undefined || otp[i].value === '')
+                    return;
+                otpvalue += otp[i].value
+            }
+
+            var jsonbody = JSON.stringify({
+                "cred": credential,
+                "otp": otpvalue
+            })
+            postJSON('/api/checkotp/account', jsonbody)
+        }
+        </script>
+    </body>
+</html>

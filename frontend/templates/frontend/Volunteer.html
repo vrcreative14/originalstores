@@ -1,0 +1,151 @@
+{% extends 'base.html' %}
+{% load static %}
+<!DOCTYPE html>
+<!--[if lt IE 7]>      <html class="no-js lt-ie9 lt-ie8 lt-ie7"> <![endif]-->
+<!--[if IE 7]>         <html class="no-js lt-ie9 lt-ie8"> <![endif]-->
+<!--[if IE 8]>         <html class="no-js lt-ie9"> <![endif]-->
+<!--[if gt IE 8]>      <html class="no-js"> <!--<![endif]-->
+<html>
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <title>Sign Up</title>
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link rel="stylesheet" href="">
+    </head>
+    <body>
+        <!--[if lt IE 7]>
+            <p class="browsehappy">You are using an <strong>outdated</strong> browser. Please <a href="#">upgrade your browser</a> to improve your experience.</p>
+        <![endif]-->
+            {% block content %}
+            <div>
+            {% if type == 'seller' %}
+            
+               {% comment %} {% include 'Message.html' %} {% endcomment %}
+               
+        <div class="centeredDiv headingDiv">
+          <span class="headingSpan">Welcome to Vcnity Stores</span>
+        </div>
+               
+               <div style="margin:5px 5px 5px 20px;padding:10px;">
+               <div class="ui items">
+                  <label class="headingSpan divContent">Selling goods and articles through Vcnity stores platform empowers you to create your online store free of cost & showcase your products to your customer</label> 
+                  <br/>
+                  <span class="headingSpan divContent">Some of the benefits of registering your store at Vcnity :</span>
+                </div>
+                  {% comment %} <ul>
+                          <span>1.Get customers from all over the country</span><br/>
+                          <span>2.Avoid unncessary crowd entering in your shop and focus on only willing customers</span><br/>
+                          <span>3.Get complete assistance in tax (GST) compliance</span><br/>
+                          <span>4.Very low commissions in online sales</span><br/>
+                          <span>5.Get branding and marketing expertise</span><br/>
+                          <span>6.Be more confident and technologically enable in tough situations like lockdown due to pandemic</span>
+                  </ul> {% endcomment %}
+               </div>
+
+
+               <div class="ui items" style="margin:5px 5px 5px 40px;padding:10px;">
+  <div class="item">
+    <div class="ui tiny image">
+      <img src="https://storage.googleapis.com/vicinity-solutions.appspot.com/static/images/misc/check_mark_vcnity.png">
+    </div>
+    <div class="content">
+      <span class="header">Get customers from all over the country</span>
+      {% comment %} <div class="meta">
+        <span></span>
+      </div> {% endcomment %}
+       <div class="description">
+       Increase your sales & profits
+      </div> 
+     
+    </div>
+  </div>
+
+    <div class="item">
+    <div class="ui tiny image">
+      <img src="https://storage.googleapis.com/vicinity-solutions.appspot.com/static/images/misc/check_mark_vcnity.png">
+    </div>
+    <div class="content">
+      <span class="header">Very low commissions in online sales</span>
+     
+      <div class="description">
+           Creating your Online store is completely free and very low commission on sales
+      </div>
+    
+    </div>
+  </div>
+    <div class="item">
+    <div class="ui tiny image">
+      <img src="https://storage.googleapis.com/vicinity-solutions.appspot.com/static/images/misc/check_mark_vcnity.png">
+    </div>
+    <div class="content">
+      <span class="header">Be worry free from returns and refunds</span>
+     
+      <div class="description">
+           Our algorithm helps customers to buy from favourite products from their nearby stores and decrease chances of returns & refunds           
+      </div>
+    
+    </div>
+  </div>
+  <div class="item">
+   <button class="ui large green button" style="height:60px;width:250px;font-size:18px;" onclick="window.open('/vikreta','_self')">Join as a seller</button>
+  </div>
+  <div class="item">
+    <div class="ui tiny image">
+       <img src="https://storage.googleapis.com/vicinity-solutions.appspot.com/static/images/misc/check_mark_vcnity.png">
+    </div>
+    <div class="content">
+      <span class="header">Avoid unncessary crowd entering in your shop and focus on only willing customers</span>
+     
+      <div class="description">
+       Social Distancing is the new normal
+      </div>
+
+    </div>
+  </div>
+  <div class="item">
+    <div class="ui tiny image">
+      <img src="https://storage.googleapis.com/vicinity-solutions.appspot.com/static/images/misc/check_mark_vcnity.png">
+    </div>
+    <div class="content">
+      <span class="header">Get complete assistance in tax (GST) compliance</span>
+      {% comment %} <div class="meta">
+        <span></span>
+      </div> {% endcomment %}
+      <div class="description">
+        Worried about taxes, we are here to assist in your tax issues
+      </div> 
+     
+    </div>
+  </div>
+
+  <div class="item">
+    <div class="ui tiny image">
+      <img src="https://storage.googleapis.com/vicinity-solutions.appspot.com/static/images/misc/check_mark_vcnity.png">
+    </div>
+    <div class="content">
+      <span class="header">Get branding and marketing expertise</span>
+     
+      <div class="description">
+            We help our sellers to transform themselves in their branding, marketing strategies and expand their stores
+      </div>
+  
+    </div>
+  </div>
+  
+</div>
+               
+            {% elif type == 'services' %}
+            <h1>Seller</h1>
+            {% include 'Services.html'%}
+            {% elif type == 'transport' %}
+            <h1>transport</h1>
+            {% elif type == 'buyer' %}
+           {% include 'BuyerRegistration.html' %}
+            {% endif %}
+            </div>
+            {% endblock %}
+        <script src="" async defer></script>
+    </body>
+</html>

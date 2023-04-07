@@ -1,0 +1,238 @@
+{% extends 'base.html' %}
+
+{% load static %}
+<!DOCTYPE html>
+<html>
+
+<head>
+    
+    
+    <link rel="stylesheet" type="text/css" href="{%static 'css/Signup.css'%}">
+    <link href='https://fonts.googleapis.com/css?family=Finger Paint' rel='stylesheet'>
+    <style>
+        * {
+            box-sizing: border-box;
+          }
+
+
+        /* body {
+  font-family: Arial, Helvetica, sans-serif;
+} */
+
+        /* .formcontainer{
+                    display: flex;
+                    flex-direction: row;
+                } */
+
+        /* .formcontainer>div{
+                    align-items: baseline;
+                    padding: 16px 50px 20px 45px;
+                }
+
+                .formcontainer > input{
+                    margin: 0 46px 4px 39px;
+                    
+                }
+                .headinglabel{
+                      margin: 5px 40px 39px 2px;
+                      font-size: 20px;
+                      font-weight: 600;
+                }
+
+                input,select{
+                    margin-left: 200px;
+                    height: 25px;
+                }
+
+                input:hover{
+                    wnameth: 300px;                    
+                }
+                 */
+    </style>
+   
+    {% block title %}SignUp{% endblock %}
+</head>
+
+<body style="font-family: 'Finger Paint';">
+ <div id="like_button_container"></div>
+    {% block content %}
+    {{form}}
+       
+<div class="container">
+    <div class="centeredDiv headingDiv">        
+        <span class="headingSpan" style="font-weight: 500;color: #fff;"> Let's create your Account</span>
+    </div>
+
+    <div style="display: flex;justify-content: center;" class="formdiv">        
+        <span style="font-weight: 500;color:rgb(143, 19, 196);font-size: 22px;margin:15px;"> SignUp Form </span>
+    </div>
+
+    <div class="centeredDiv">
+        <img class="ui medium image" src="https://i.ibb.co/gRt6bFJ/signup.jpg">
+    </div>
+    <br/>
+    {% include 'Message.html' %}
+
+
+       
+        <br/>
+        {% include 'Modal.html' %}
+     
+       
+        <div class="ui column stackable center page grid">
+                    <div class="four wide column"></div>
+
+            <form class="ui ten wide column form" id="signupForm">
+                <div class="fields hidden">
+                    
+                    <span class="ui top attached label infoLabel">You are now just one step away from successfull Signup!</span>
+                    <!-- <label>Name</label> -->
+                    <div class="twelve wide field">     
+                        <div class="required inline field">
+                                <label >Full Name</label>                                 
+                                <span id="enterNameLabel" class="ui left pointing red basic label" style="display: none;">Please Enter First Name</span>             
+                        </div> 
+                               <input type="text" id="name" name="name" placeholder="Your Full Name" maxlength="70">
+                    </div>
+                </div>
+                <div class="fields"  id="mobileField">
+                    <!-- <label class="ui dividing">Contact Information (For Log in purpose either Email OR Mobile no can be used)</label> -->
+                    <div class="sixteen wide field">
+                        <div class="required inline field">
+                            <label>Mobile number </label>
+                            <span id="invalidPhoneLabel" class="ui left pointing red basic label" style="display: none;">Please Enter Valid Mobile No.</span>             
+                        </div>
+                        <div class="inline field">
+                           
+                            <input class="ui mini" style="width: 55px;margin-right: 0px;" placeholder="+91" readonly></input>                           
+                           
+                            <input class="" type="text" id="mobile_no" name="mobile_no" placeholder="Enter Your Mobile number" onchange="validateMobileno(this.value)" onkeypress="return (event.charCode !=8 && event.charCode ==0 || (event.charCode >= 48 && event.charCode <= 57))" maxlength="10" style="width: 415px;">                          
+                            <button id="changemobileBtn" class="ui button hidden">Change</button>
+                       
+                            <!-- <label class="ui button">Change</label>                            -->
+                            <!-- <a class="ui label hidden" style="margin-left: 80px;">Change</a>     -->
+                        </div>                 
+                                   
+                  </div>                   
+              </div>
+
+              <div class="fields hidden" id="emailField">
+                <div class="twelve wide field">   
+                   <div class="inline field">
+                     <label >Email (Optional)</label>  
+                     <span id="invalidEmailLabel" class="ui left pointing red basic label" style="display: none;">Please Enter Valid Email Id</span>             
+                   </div>
+                     <div class="">
+                       <input type="email" name="email" id="emailInput" placeholder="Enter Your Email Id"  onchange="validateEmail()" maxlength="55">
+                     </div>               
+                </div>  
+             </div>
+
+            <div class="fields hidden">
+                <!-- <label class="ui dividing">Contact Information (For Log in purpose either Email OR Mobile no can be used)</label> -->           
+                <div class=" twelve wide field">   
+                 <div class="required inline field">
+                   <label>Password</label>  
+                   <span id="passwordLabel" class="ui left pointing red basic label" style="display: none;">Please Enter Password</span>             
+                </div>
+              
+
+                <div class="ui inverted icon input">
+                    <input type="password" name="password" id="password"  placeholder="Enter Password"  oninput="checkPassword()" maxlength="50">
+                    <i id="showpass" class="inverted white eye link icon" onclick="ShowPassword();">
+                    <!-- <i id="showpass" class="inverted white eye link icon" onclick="ShowPassword();" style="display: none;"> -->
+                       <!-- <a> <span style="margin-top: 8px;">Show</span> </a> -->
+                    </i>
+              </div>
+            </div> 
+            </div>
+             </form>    
+        
+        </div>
+        <div class="ui column stackable center page grid ">
+            <div class="four wide column"></div>
+        <div id="otpVerificationDiv" style="display:none;">
+         
+         <div class="three wide column"></div>
+         <div class="four wide column" id="mobileOTPInfo">
+             <div class="fields">
+                   <label class="infoLabel">Enter the OTP received on your Mobile number</label>
+             </div>
+         </div>
+        
+         <form class="ui attached ten wide column form" id="formSubmitOTP"> 
+            <div class="fields">
+                <div class="twelve wide field">     
+                    <div class="inline required field">
+                            <label >Mobile OTP Verification</label>                             
+                            <span id="enterNameLabel" class="ui left pointing red basic label" style="display: none;">Please Enter OTP sent to your Mobile number</span>             
+                     </div>
+                     <div>
+                           <input class="verifyOTP" type="text"  id="otpMobile1"  maxlength="1" oninput="{this.value=this.value.replace(/[^0-9]/g,'')};CheckOTP()";>
+                           <input class="verifyOTP" type="text"  id="otpMobile2"  maxlength="1" oninput="this.value=this.value.replace(/[^0-9]/g,'');CheckOTP()";>
+                           <input class="verifyOTP" type="text"  id="otpMobile3"  maxlength="1" oninput="this.value=this.value.replace(/[^0-9]/g,'');CheckOTP()";>
+                           <input class="verifyOTP" type="text"  id="otpMobile4"  maxlength="1" oninput="this.value=this.value.replace(/[^0-9]/g,'');CheckOTP();";>     
+                     </div>
+                     <br/>
+                     <span class="ui medium basic label">The otp is valid only for 10 mins</span><br/>
+                     <span class="ui medium basic label">Not received OTP ? Click here</span> <a class="ui large label" onclick="SendOTP()">Resend OTP</a>
+                        </div>
+                
+            </div>
+
+           
+         </form>          
+       
+
+        </div>
+        </div>
+
+         <div class="centeredDiv">       
+             <button id="submitMobileBtn" class="ui blue button submitBtn"  onclick="SendOTP()" ><b>Continue</b></button>
+        </div>  
+
+        <div class="centeredDiv">
+            <ul class="contentDiv">
+                <li>Providing Mobile number enables better communication</li>
+                <li>We never share your data to any third-party</li>
+            </ul>
+        </div>
+
+        
+
+        <div class="centeredDiv">
+            <button id="signupBtn" class="ui button submitBtn successBtn hidden" onclick="Register()"><b>Signup</b></button>
+         </div>
+         
+             <div class="centeredDiv">
+                <span class="headingSpan">Already have an account? <button class="ui brown button" style="margin-left:10px;" onclick="GoToPage('/login')">Login from here</a></span>
+             </div>
+             <br/>
+        
+        <br/>     
+        <br/>       
+</div>
+       
+     <div style="display: flex;padding: 50px;" class="formDiv">
+           <h5></h5>
+          <div>
+          </div>                       
+    </div>
+    <script src="{% static 'js/App.js' %}"></script>
+    <script src="{% static 'js/Signup.js' %}"></script>
+    <script src="{% static 'js/Misc.js' %}"></script>
+</div>
+
+  
+    <script src="https://unpkg.com/react@17/umd/react.development.js" crossorigin></script>
+    <script src="https://unpkg.com/react-dom@17/umd/react-dom.development.js" crossorigin></script>
+
+  <!-- Load our React component. -->
+  <script src="{% static 'js/like_button.js"></script>
+    {% endblock %}
+    
+</body>
+
+
+
+</html>

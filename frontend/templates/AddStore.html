@@ -1,0 +1,232 @@
+{% extends 'SellerBase.html' %}
+
+{% load static %}
+<!DOCTYPE html>
+<!--[if lt IE 7]>      <html class="no-js lt-ie9 lt-ie8 lt-ie7"> <![endif]-->
+<!--[if IE 7]>         <html class="no-js lt-ie9 lt-ie8"> <![endif]-->
+<!--[if IE 8]>         <html class="no-js lt-ie9"> <![endif]-->
+<!--[if gt IE 8]>      <html class="no-js"> <!--<![endif]-->
+<html>
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <title></title>
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link rel="stylesheet" href="">
+       
+        {% comment %} <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/semantic-ui@2.4.2/dist/semantic.min.css">
+        <link rel="stylesheet" type="text/css" href="{%static 'css/Signup.css'%}">
+        <link rel="stylesheet" type="text/css" href="{%static 'css/App.css'%}"> {% endcomment %}
+    
+    </head>
+    <body>
+        <!--[if lt IE 7]>
+            <p class="browsehappy">You are using an <strong>outdated</strong> browser. Please <a href="#">upgrade your browser</a> to improve your experience.</p>
+        <![endif]-->
+        {% block content %}
+      <div class="">
+       {% include 'Message.html' %}
+       {% include 'Modal.html' %}
+        <div style="padding:10px">
+        <button class="ui button" onclick="GoToPage('http://127.0.0.1:8000/SellerDashboard')">  <i class="arrow alternate circle left outline icon"></i> Go Back     
+        </button>
+        </div>
+          <div name="storeInfo" class="ui segment" >            
+            <form class="ui form segment">
+                <div class="ui header centeredDiv formheadingDiv">
+                 <span class="formheadingSpan"> Shop & Organization Details </span>
+                </div>
+                  <br/>
+                  <div class="fields">                  
+                    <div class="four wide required field">
+                      <label class="">Your Shop/Business Name</label>                  
+                      <input type="text" name="" placeholder="Name of Business/Shop/Store Name" id="shopname">
+                      <span id="shopname_errorLabel" class="ui top pointing red basic label promptLabel" style="display: none;">Enter your Shop name for store creation</span>             
+                    </div>
+                   
+                    <div class="eight wide required field">
+                      <label class="">Choose Product Category (You may search & choose multiple categories from the below given menu)</label>
+                      <select name="productcategory" id="productcategory" multiple=""  class="ui fluid search selection dropdown" onchange="CheckProductCategory()">
+                      <option value="0" disabled>Select Product Categories you deal with</option>
+                        {% for category in categories %}    
+                        <option value="{{category}}">{{category}}</option>    
+                        {% endfor %}        
+                      <!-- <option value="0" disabled>Select Product Categories you deal with</option>            -->
+                      </select>
+                      <span id="productcategory_errorLabel" class="ui top pointing red basic label promptLabel" style="display: none;">Choose Product categories you deal with for store creation</span>             
+                    </div>                                 
+                  </div>
+
+                  <div class="six wide field hidden"> 
+                   <input type="text" class="largeInput " id="describe-category" placeholder="Describe the product category in which you deal. In case of multiple categories separate them with comma."></input>
+                 </div>
+                  <div class="fields">
+                    <div class="eight wide required field">
+                    <label>Choose Store Category from below options.</label>
+                    <select name="storeCategories" id="storecategory" class="ui fluid search selection dropdown" multiple="">
+                      <option value="0" disabled>Select your Store Category</option>
+                        {% for category in store_categories %}    
+                        <option value="{{category}}">{{category}}</option>    
+                        {% endfor %}                           
+                      </select>
+                      <span id="storecategory_errorLabel" class="ui top pointing red basic label promptLabel" style="display: none;"> Choose Sub-categories from the list </span>             
+                  </div>
+                  </div>
+                  <br/>
+               
+                 <div class="fields">
+                    <div class="four wide inline required field">
+                       <label class="">Is Your Shop registered under GST ?</label>
+                    </div>
+                    <div class=" inline field">
+                    <input type="radio" name="is_gst_registered" value="1" onclick="CheckGSTINEntry(this.value)" > <label>Yes</label>
+                    </div>
+                    <div class="inline field">
+                    <input type="radio" name="is_gst_registered" value="0" onclick="CheckGSTINEntry(this.value)"> <label>No</label>
+                    </div>
+                   
+                    <div class="four wide field"> 
+                      <span id="isgstregistered_errorLabel" class="ui left pointing red basic label promptLabel" style="display: none;">Choose whether your shop is registered undet GST or not</span>             
+                    </div>
+                    <div class="inline field">
+                      <!-- <div class=""> -->
+                    <label>Why is it necessary to provide GSTIN number at vcnity.online ?</label>
+                     <!-- </div> -->
+                    </div>
+                    
+                  
+
+                 </div>
+            
+            
+                <div class="field">
+                 <div class="fields">
+                   <div class="ten wide required inline field hidden gstinEntry">                   
+                       <label>Enter your 15 digit GSTIN </label>                     
+                       <input placeholder="" onkeyup="checkGSTIN()" id="gstin">
+                       <span id="gstin_errorLabel" class="ui left pointing red basic label promptLabel" style="display: none;">Enter a valid GSTIN under which your business is registered </span>             
+                  </div>                                 
+                 </div>
+                </div>
+               
+                <br/>
+                <div class="fields">
+                 <div class="twelve wide inline field">
+                 <h4 class="ui dividing header">Upload a Picture of your shop (Optional)</h4>
+             <br/>
+                 <div class="six wide inline field">              
+                   <input type="file" id="storeimage" name="storepic" style="width: 500px;">
+                 </div>
+               </div>
+               </div>
+
+                <div class="ui header centeredDiv formheadingDiv">
+                  <span class="formheadingSpan"> Shop/Store Location (Required for correspondence and pickup of items) </span>
+                 </div>
+               
+                <br/>
+           
+                 <div class="fields">
+                  <div class="eight wide field ">                       
+                    <a id="detect-location" class="ui blue button" onclick="FetchFillLocation(event)"> Allow Location Detection</a>  
+                    <li>Choose this if your current location is same as your Shop's location</li>            
+                    <li>We will save your shop location to reach customers at your shop efficiently</li>            
+                    <br/>
+                    <span id="locationmessage" class="ui top pointing green large basic label promptLabel" style="display: none;">Fetched Location. Make changes accordingly to make the address accurate.</span>             
+                  </div>
+                 </div>
+
+                <div class="fields">                
+                  <div class="four wide required field">
+                    <label>State</label>
+                    <select class="ui dropdown" id="state">
+                      <option value="">Select State</option>                     
+                      {% for state in states %}                                  
+                      <option value="{{state}}">{{state}}</option>
+                      {% endfor %}                 
+                    </select>
+                    <span id="state_errorLabel" class="ui top pointing red basic label promptLabel" style="display: none;">Select state in which your Shop is located</span>             
+                  </div>
+
+                 
+                  <div class="four wide required field">
+                         <label>City</label>
+                      <input placeholder="Enter the city in which Shop is Located" id="city">    
+                      <span id="city_errorLabel" class="ui top pointing red basic label promptLabel" style="display: none;">Enter city in which Shop is located</span>                       
+                  </div>
+
+
+                  
+                  <div class="three wide required field">     
+                    <label> Pincode </label>               
+                    <input type="text" name="pincode" placeholder="Pincode of your Shop" id="pincode" maxlength="6" onkeypress="return (event.charCode !=8 && event.charCode ==0 || (event.charCode >= 48 && event.charCode <= 57))">
+                    <span id="pincode_errorLabel" class="ui top pointing red basic label promptLabel" style="display: none;">Enter pincode for your Shop</span>    
+                  </div>
+
+                  <div class="two wide required field hidden">     
+                    <label> Latitude </label>               
+                    <input type="text" name="latitude"  id="latitude">
+                  </div>
+
+                  <div class="two wide required field hidden">     
+                    <label> Longitude </label>               
+                    <input type="text" name="longitude" id="longitude">
+                  </div>                             
+                </div>
+                <br/>
+                <div class="fields">
+                 {% if seller.is_physical_store == True %}
+                
+                {% else %}
+                  <div class="four wide required field">
+                   <label>Do you own Existing Brick & Mortar Store</label>
+                   <span id="is_store_existing_errorLabel" class="ui top pointing red basic label promptLabel" style="display: none;">Required Field</span>             
+                   <div class="inline field">
+                    <input type="radio" name="is_store_existing" value="1" onclick="CheckStoreAddress(this.value)"> <label>Yes</label>
+                    </div>
+                    <div class="inline field">
+                    <input type="radio" name="is_store_existing" value="0" onclick="CheckStoreAddress(this.value)"> <label>No</label>
+                    </div>    
+                  </div>
+                {% endif %}
+                </div>
+                <div class=" fields">
+                  
+                  <div id="addressLine1" class="five wide field">
+                      <label>Address Line 1 (Details like Shop Number, Market name etc.)</label>                      
+                      <input placeholder="Enter address for your Shop" id="address">                
+                       <span id="addressLine1_errorLabel" class="ui top pointing red basic label promptLabel" style="display: none;">Address Required in case of Existing Physical Store</span>                         
+                  </div>
+
+                  <div id="addressLine2" class="five wide field">
+                      <label>Address Line 2 </label>                       
+                      <input placeholder="Enter address for your Shop" id="address">                            
+                  </div>
+
+                  <div class="four wide field">
+                      <label>Nearest Landmark</label>
+                      <input placeholder="Enter the landmark situated near your shop" id="landmark">                
+                  </div>                
+                </div>                                   
+              </form>
+                    <div class="centeredDiv">
+                      <button class="ui button successBtn submitBtn formheadingSpan" onclick="SaveStoreInfo()">Save</button>
+                    </div>
+          </div>
+        
+          <script src="{% static 'js/Misc.js' %}"></script>
+          <script src="{% static 'js/Seller.js' %}"></script>
+          <script src="{% static 'js/App.js' %}"></script>
+     
+          <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script> 
+          <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/semantic-ui/2.2.10/semantic.js"></script>
+           <script>
+            $('#storecategory').dropdown()            
+            $('#productcategory').dropdown()                     
+          </script>
+        </div>
+        {% endblock %}
+    </body>
+   
+</html>

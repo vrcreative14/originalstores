@@ -1,0 +1,134 @@
+{% extends 'base.html' %}
+
+{% load static %}
+<!DOCTYPE html>
+<html>
+    <head>
+        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/semantic-ui@2.4.2/dist/semantic.min.css">
+        <link rel="stylesheet" type="text/css" href="{%static 'css/Signup.css'%}">
+        <link rel="stylesheet" type="text/css" href="{%static 'css/App.css'%}">
+    </head>
+
+    <body>
+        {% block content %}
+
+        <div class="centeredDiv headingDiv">
+          <span class="headingSpan">Login to your account</span>
+        </div>
+        {% include 'Modal.html' %}
+          <div class="container" style="padding: 100px;">       
+            {% include 'Message.html' %}
+            <div>
+            
+            {% include 'ChangePassword.html' %}
+            </div>
+            <div id="login_div" >
+        <div class="ui column stackable center page grid">
+            <div class="four wide column"></div>
+            <form class="ui ten wide column form">
+                  <div class="fields"> 
+                    <div class="twelve wide field">     
+                      <div class="required inline field">
+                              <label>Login with Mobile number or Email</label>                                 
+                              <span id="enterCredLabel" class="ui left pointing red basic label" style="display: none;">Enter valid Mobile number or Email</span>             
+                      </div> 
+                             <input type="text" id="logincredInput" name="name" placeholder="Enter Mobile number or Email" maxlength="70">
+                    </div>
+                 
+                  </div>
+                  <div class="fields"> 
+                    <div class="twelve wide field">     
+                      <div class="required inline field">
+                              <label >Password</label>                                 
+                              <span id="enterPasswordLabel" class="ui left pointing red basic label" style="display: none;">Enter Password</span>             
+                      </div> 
+                             <input type="password" id="logincredInputpw" name="name" placeholder="Enter Password here" maxlength="70">
+                    </div>
+                 
+                  </div>
+                  <div style="float:right;">
+                  <br/>
+                     <a class="ui large label" onclick="forgotPassword()">Forgot password?</a>  </div>
+                     
+                   
+              </form>       
+                   
+           
+        </div>
+        <br/>
+        
+          <div class="centeredDiv">
+          <button class="ui button submitBtn successBtn" onclick="Login()">Login</button>
+        </div>
+        
+        </div>
+        
+        <div id="forgotPassDiv" class="centeredDiv hidden">
+       
+        {% comment %} <div class="four wide field">  
+                <div class="required inline field">
+                      <label class="formLabel">Is your Email address registered at vcnity.online?</label>
+                      <span id="is_email_registered_errorLabel" class="ui left pointing red basic label promptLabel" style="display: none;">Required field</span>             
+
+                </div>
+                    
+      <div class="ui radio checkbox">
+        <input type="radio" value="1" name="is_email_registered"  onclick="ForgotPasswordEmail(this.value)">
+        <label class="formLabel">Yes</label>
+      </div>
+       <div class="ui radio checkbox">
+        <input type="radio" value="0" name="is_email_registered" onclick="ForgotPasswordEmail(this.value)"> 
+        <label class="formLabel">No</label>
+      </div>    
+    </div> {% endcomment %}
+       
+        {% comment %} <div id="mobile_password_change" class="ui form hidden">
+            <div class="three wide field">
+            <label>Enter your registered Mobile number</label>
+            <input type="text"/>
+            </div>        
+        </div> {% endcomment %}
+
+        <div class="ui form">
+        <h4 class="ui dividing header">An OTP will be sent to registered Email or Mobile number for password change</h4>  
+         <div class="ui segment">
+          <div id="email_password_change" class="twelve wide field">
+              
+                  <label>Enter your registered Email address</label>
+                  <input name="credential" type="email" id="registered_email" />               
+          </div>
+          <button class="ui green button" onclick="sendOTPMail()">Send OTP</button>
+          <h4 class="ui dividing header">OR</h4>
+           <div id="mobile_password_change" class="twelve wide inline field">
+              
+                  <label>Enter your registered Mobile number</label>
+                  <input name="credential" type="number" maxlength="10" id="registered_mobile"/>
+                  <button class="ui green button" onclick="sendOTPMobile()">Send OTP</button>               
+          </div>
+         
+        </div>
+         <a class="ui large label" href="/login" style="float:right;">Login To Account</a>
+</div>
+        </div>
+        
+        {% include 'otp.html' %}
+        <div class="centeredDiv">
+            <label> <span class="headingSpan">New User ?</span> <button class="ui teal button" onclick="GoToPage('/SignUp');" style="margin-left:10px;"> Signup from here</a>
+            </label>
+        </div>
+        <br/>
+        
+      
+      </div>
+
+      <script src="{% static 'js/Misc.js' %}"></script>    
+      <script>
+          function forgotPassword() {
+          document.getElementById('login_div').classList.add('hidden')
+          document.getElementById('forgotPassDiv').classList.remove('hidden')
+        }
+      </script>   
+        {% endblock %}
+        <script src="https://cdn.jsdelivr.net/npm/semantic-ui@2.4.2/dist/semantic.min.js"></script>
+    </body>
+</html>

@@ -1,0 +1,77 @@
+{% extends 'SellerBase.html' %}
+<!DOCTYPE html>
+<!--[if lt IE 7]>      <html class="no-js lt-ie9 lt-ie8 lt-ie7"> <![endif]-->
+<!--[if IE 7]>         <html class="no-js lt-ie9 lt-ie8"> <![endif]-->
+<!--[if IE 8]>         <html class="no-js lt-ie9"> <![endif]-->
+<!--[if gt IE 8]>      <html class="no-js"> <!--<![endif]-->
+<html>
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <title></title>
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link rel="stylesheet" href="">
+    </head>
+    <body>
+        <!--[if lt IE 7]>
+            <p class="browsehappy">You are using an <strong>outdated</strong> browser. Please <a href="#">upgrade your browser</a> to improve your experience.</p>
+        <![endif]-->
+        {% block content %}
+        <div class="ui segment" style="margin:15px;">
+        <div class="ui form">
+        <div class="fields">
+                <div class="five wide field">
+                    <label>Post Title</label>
+                    <input type="text" id="title" />
+                </div>
+                <div class="four wide field">
+                    <label>Add Image to your post</label>
+                    <input type="file" id="post_image" />
+                </div>
+                
+                <div class="three wide field hidden" id="Image2">
+                    <label>Add second Image to your post</label>
+                    <input type="file" id="" />
+                </div>
+                <div class="three wide field hidden" id="Image3">
+                    <div>
+                    <input type="text">
+                    </div>
+                    <label>Add third Image to your post</label>
+                    <input type="file" id="" />
+                </div>
+                <div class="two wide field">                                
+                        <button class="ui black button" id="addImageBtn" value="2" onclick="ShowImage(this.value)">
+                            <i class="plus icon"></i>Add another Image
+                        </button>                
+                </div>
+        </div>
+            <div class="fields">
+                    <div class="six wide field">
+                            <label>Type your content here</label>
+                            <textarea></textarea>
+                    </div>
+            </div>
+            <div class="centeredDiv">
+                <button class="ui green button">Create Post</button>
+            </div>
+        </div>
+        </div>
+        </div>
+        <script>
+        function ShowImage(val){
+            if(val > 3){
+                DisplayMessage('','Currently, you can add maximaum 3 images to the post')
+            }
+            else {
+            document.getElementById(`Image${val}`).classList.remove('hidden')
+            document.getElementById('addImageBtn').value = '3'
+            }
+            
+        }
+        </script>
+        {% endblock %}
+        <script src="" async defer></script>
+    </body>
+</html>

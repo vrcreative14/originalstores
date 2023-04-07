@@ -1,0 +1,102 @@
+{% extends 'base.html' %}
+{% load static %}
+
+<!DOCTYPE html>
+<!--[if lt IE 7]>      <html class="no-js lt-ie9 lt-ie8 lt-ie7"> <![endif]-->
+<!--[if IE 7]>         <html class="no-js lt-ie9 lt-ie8"> <![endif]-->
+<!--[if IE 8]>         <html class="no-js lt-ie9"> <![endif]-->
+<!--[if gt IE 8]>      <html class="no-js"> <!--<![endif]-->
+<html>
+    <head>
+    <script data-ad-client="ca-pub-2886563858806025" async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <title></title>
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link rel="stylesheet" href="">
+    </head>
+    <body>
+        <!--[if lt IE 7]>
+            <p class="browsehappy">You are using an <strong>outdated</strong> browser. Please <a href="#">upgrade your browser</a> to improve your experience.</p>
+        <![endif]-->
+    {% block content %}
+     <div class="centeredDiv headingDiv">        
+        <span class="headingSpan" style="font-weight: 500;color: #fff;"> Best of {{category}} in most reasonable prices from your vcnity..</span>
+    </div>
+    {% include 'SideFilters.html'%}
+    
+     
+    <div class="ui {{div_class_name}} item menu">
+     {% for item in selected_product_categories%}            
+            {% if not item == "Men's Wear" %}
+               <a class="item anchor">{{item}}
+               <i class="dropdown icon" style="background:transparent!Important;color:black!Important"></i>
+               </a>
+            {% else %}                 
+                   <a class="active item anchor">If done</a>
+            {% endif %}
+            {% comment %} <a class="item">Reviews</a>
+            <a class="item">Upcoming Events</a> {% endcomment %}
+     {% endfor %}
+    </div>  
+         <div class="heading">
+        {% comment %} {% for items in selected_product_categories%} {% endcomment %}
+         <label class="headLabel">{{items.name}}</label></div>
+          <div class="card-container">
+        {% if articles %}
+          {% for article in articles %}
+            <div class="card" onclick="window.open('/products/details/?details={{article.slug_field}}')">
+            <!-- <header class="article-header"> -->
+                {% comment %} <div> {% endcomment %}
+                     <div class="category-title" style="color: black !Important;">
+                            {{article.name}}
+                        {% comment %} <span class="date">Jan 19, 2020</span> {% endcomment %}
+                     </div> 
+                   {% if article.image_thumbnail.name == '' %}
+                        <div style="background-image: url(https://storage.googleapis.com/vcnity-solutions.appspot.com/static/images/misc/image_not_available.jpg);" class="productDesc"> </div>
+                    {% else %}
+                       <div style="background-image: url(https://storage.googleapis.com/vcnity-solutions.appspot.com/{{article.image_thumbnail}});" class="productDesc"></div>
+                    {% endif %}
+
+                    {% comment %} {% if article.image == '' %}
+                       <div style="background-image: url({{article.imgPath}});" class="categoryImage"> </div>
+                    {% else %}
+                       <div style="background-image: url(https://storage.googleapis.com/vicinity-solutions.appspot.com/{{article.image}});" class="productImage"></div>
+                    {% endif %}                    {% endcomment %}
+                {% comment %} </div> {% endcomment %}
+               <div><label class="cardLabel" style="">Starts from  <i>&#8377</i> {{article.price}}</label></div>                
+        </div>
+        {% endfor %}  
+        {% else %}   
+        </div>   
+        <div class="centeredDiv">
+        <span class="headLabel">The item you searched for is currently unavailable.</span>
+        </div>  
+        {% endif %}
+        </div>    
+        {% comment %} {% endfor %} {% endcomment %}
+    </div>
+  <div class="" style="padding:10px;background-color: white;padding: 8px;">
+  <span>Search from here..</span>    
+     <div id="bottomItemList" class="{{default_items_menu_class}}" style="position:sticky;">
+            
+            {% for products in default_items%}
+            {% if products == "T-Shirts"%}
+            <a class="active item">
+                {{products}}
+            </a>
+            {% else %}
+            <a class="item">
+                {{products}}
+            </a>
+            {% endif %}
+            {% endfor %}
+           
+</div> 
+        
+    </div> 
+        {% endblock %}
+        
+    </body>
+</html>

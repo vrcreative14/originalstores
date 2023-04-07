@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<style>
+
+</style>
+</head>
+<body>
+
+<div style="display:flex;margin-left:40px;">
+
+{% if user.is_authenticated %}
+<div>
+<div class="dropdown">
+  <button class="dropbtn">{{request.session.user_name}}'s vcnity
+  <i style="background:transparent!Important;"class="bell icon transparentIcon"></i></button>
+  <div class="dropdown-content">
+  <div class="ui vertical menu">
+   
+    {% comment %} <a class="" href="#">Link 1
+    <span class="ui teal left pointing label">1</span></a>
+    <a class="" href="#">Link 2</a> {% endcomment %}
+    <a class="" onclick="Logout()">Logout</a>
+    {% comment %} <a class="" onclick="Logout('/login')">Switch to a different account</a>    {% endcomment %}
+    </div>
+  </div>
+</div>
+
+<div class="dropdown">
+  <a class="dropbtn" onclick="window.location = '/online-store'">Seller Dashboard</a>
+</div>
+
+<div class="dropdown">
+  <a class="dropbtn" onclick="window.location = '/blogs'">Blogs</a>
+</div>
+
+  <div class="dropdown">
+    <a class="dropbtn" onclick="window.location = '/contact-us'">Contact/Help</a>
+  </div>
+</div>
+{% else %}
+  <div class="dropdown">
+  <a  onclick="GoToPage('/login')" class="dropbtn">Login / Signup </a>
+  <div class="dropdown-content">
+
+  </div>
+</div>
+<div class="dropdown">
+  <a class="dropbtn" onclick="window.location = '/online-store'">Seller Dashboard</a>
+</div>
+<div class="dropdown">
+  <a class="dropbtn" onclick="window.location = '/blogs'">Blogs</a>
+</div>
+<div class="dropdown">
+  <a class="dropbtn" onclick="window.location = '/contact-us'">Contact/Help</a>
+</div>
+
+{% endif %}
+</div>
+</body>
+</html>
