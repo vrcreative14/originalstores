@@ -11,6 +11,7 @@ https://docs.djangoproject.com/en/3.1/ref/settings/
 """
 
 from pathlib import Path
+import dj_database_url
 import os
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
@@ -105,14 +106,16 @@ DATABASES = {
 #         'PORT':'5432',
 #     }
 
-    'default': {
-                'ENGINE': 'django.db.backends.postgresql',
-                'HOST': 'dpg-cgnc76d269v6fnu9nfm0-a',
-                'PORT': '5432',
-                'NAME': 'db_online',
-                'USER': 'db_online',
-                'PASSWORD': 'deJpw23bsf1WbBTb1kxIEdbTYrbfFOHz',
-            }
+#     'default': {
+#                 'ENGINE': 'django.db.backends.postgresql',
+#                 'HOST': 'dpg-cgnc76d269v6fnu9nfm0-a',
+#                 'PORT': '5432',
+#                 'NAME': 'db_online',
+#                 'USER': 'db_online',
+#                 'PASSWORD': 'deJpw23bsf1WbBTb1kxIEdbTYrbfFOHz',
+#             }
+    'default': dj_database_url.config(default='postgresql://db_online:deJpw23bsf1WbBTb1kxIEdbTYrbfFOHz@localhost:5432/db_online',conn_max_age=600)
+    
 }
 
 
