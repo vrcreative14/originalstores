@@ -96,14 +96,23 @@ DATABASES = {
     #     'ENGINE': 'django.db.backends.sqlite3',
     #     'NAME': BASE_DIR / 'db.sqlite3',
     # }
-     'default': {
-        'ENGINE': 'django.db.backends.postgresql',
-        'NAME': 'Original_Stores',
-        'USER' : 'postgres',
-        'PASSWORD' : 'aviral',
-        'HOST': '127.0.0.1',  
-        'PORT':'5432',
-    }
+#      'default': {
+#         'ENGINE': 'django.db.backends.postgresql',
+#         'NAME': 'Original_Stores',
+#         'USER' : 'postgres',
+#         'PASSWORD' : 'aviral',
+#         'HOST': '127.0.0.1',  
+#         'PORT':'5432',
+#     }
+
+    'default': {
+                'ENGINE': 'django.db.backends.postgresql',
+                'HOST': 'dpg-cgnc76d269v6fnu9nfm0-a',
+                'PORT': '5432',
+                'NAME': 'db_online',
+                'USER': 'db_online',
+                'PASSWORD': 'deJpw23bsf1WbBTb1kxIEdbTYrbfFOHz',
+            }
 }
 
 
