@@ -12,6 +12,7 @@ django-cors-headers==3.5.0
 django-multiselectfield==0.1.12
 django-rest-knox==4.1.0
 djangorestframework==3.12.1
+dj-database-url==0.5.0
 dynaconf==3.1.2
 hvac==0.10.5
 idna==2.10
@@ -22,6 +23,7 @@ loguru==0.5.3
 mccabe==0.6.1
 Pillow==8.0.1
 psycopg2==2.8.6
+psycopg2-binary==2.9.6
 pycparser==2.20
 pylint==2.6.0
 pytz==2020.1
