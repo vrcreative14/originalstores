@@ -1,0 +1,19 @@
+
+
+@media only screen and (max-width: 600px){
+    .ui.success.message {
+        width: 400px !Important;
+        background-color: rgb(235, 249, 220);
+        margin-left: 40px;
+    }
+}
+
+#mobileOTPInfo{
+    margin-left: 100px;
+}
+
+#formSubmitOTP{
+    margin-left: 125px;
+    white-space: nowrap;
+}
+
