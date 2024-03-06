@@ -116,7 +116,7 @@ DATABASES = {
 #                 'USER': 'db_online',
 #                 'PASSWORD': 'deJpw23bsf1WbBTb1kxIEdbTYrbfFOHz',
 #             }
-    'default': dj_database_url.config(default='postgres://db_online:deJpw23bsf1WbBTb1kxIEdbTYrbfFOHz@dpg-cgnc76d269v6fnu9nfm0-a/db_online',conn_max_age=600)
+    'default': dj_database_url.config(default=os.environ.get('DATABASE_URL'),conn_max_age=600)
     
 }
 
